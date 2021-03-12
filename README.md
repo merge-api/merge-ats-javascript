@@ -67,10 +67,7 @@ var MergeAtsApi = require('merge_ats_api');
 
 var defaultClient = MergeAtsApi.ApiClient.instance;
 // Configure API key authorization: tokenAuth
-var tokenAuth = defaultClient.authentications['tokenAuth'];
-tokenAuth.apiKey = "YOUR API KEY"
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//tokenAuth.apiKeyPrefix['Authorization'] = "Token"
+defaultClient.authentications['tokenAuth'] = {type: "bearer", accessToken: "YOUR_API_KEY"}
 
 var api = new MergeAtsApi.AccountTokenApi()
 var publicToken = "publicToken_example"; // {String} 

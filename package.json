@@ -1,5 +1,5 @@
 {
-  "name": "merge_ats_api",
+  "name": "@mergeapi/merge_ats_api",
   "version": "1.0.0",
   "description": "The_unified_API_for_building_rich_integrations_with_multiple_Applicant_Tracking_System_platforms_",
   "license": "Unlicense",

@@ -4,67 +4,9 @@ All URIs are relative to *https://api.merge.dev/api/ats/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**jobInterviewStagesCreate**](JobInterviewStagesApi.md#jobInterviewStagesCreate) | **POST** /job-interview-stages | 
 [**jobInterviewStagesList**](JobInterviewStagesApi.md#jobInterviewStagesList) | **GET** /job-interview-stages | 
 [**jobInterviewStagesRetrieve**](JobInterviewStagesApi.md#jobInterviewStagesRetrieve) | **GET** /job-interview-stages/{id} | 
 
-
-
-## jobInterviewStagesCreate
-
-> JobInterviewStage jobInterviewStagesCreate(xAccountToken, opts)
-
-
-
-Creates a &#x60;JobInterviewStage&#x60; object with the given values.
-
-### Example
-
-```javascript
-import MergeAtsApi from 'merge_ats_api';
-let defaultClient = MergeAtsApi.ApiClient.instance;
-// Configure API key authorization: tokenAuth
-let tokenAuth = defaultClient.authentications['tokenAuth'];
-tokenAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//tokenAuth.apiKeyPrefix = 'Token';
-
-let apiInstance = new MergeAtsApi.JobInterviewStagesApi();
-let xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
-let opts = {
-  'runAsync': true, // Boolean | Whether or not third-party updates should be run asynchronously.
-  'createJobInterviewStage': new MergeAtsApi.CreateJobInterviewStage() // CreateJobInterviewStage | 
-};
-apiInstance.jobInterviewStagesCreate(xAccountToken, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xAccountToken** | **String**| Token identifying the end user. | 
- **runAsync** | **Boolean**| Whether or not third-party updates should be run asynchronously. | [optional] 
- **createJobInterviewStage** | [**CreateJobInterviewStage**](CreateJobInterviewStage.md)|  | [optional] 
-
-### Return type
-
-[**JobInterviewStage**](JobInterviewStage.md)
-
-### Authorization
-
-[tokenAuth](../README.md#tokenAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
-- **Accept**: application/json
 
 
 ## jobInterviewStagesList

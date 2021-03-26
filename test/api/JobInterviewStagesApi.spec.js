@@ -48,16 +48,6 @@
   }
 
   describe('JobInterviewStagesApi', function() {
-    describe('jobInterviewStagesCreate', function() {
-      it('should call jobInterviewStagesCreate successfully', function(done) {
-        //uncomment below and update the code to test jobInterviewStagesCreate
-        //instance.jobInterviewStagesCreate(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('jobInterviewStagesList', function() {
       it('should call jobInterviewStagesList successfully', function(done) {
         //uncomment below and update the code to test jobInterviewStagesList

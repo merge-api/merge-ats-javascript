@@ -48,16 +48,6 @@
   }
 
   describe('OfficesApi', function() {
-    describe('officesCreate', function() {
-      it('should call officesCreate successfully', function(done) {
-        //uncomment below and update the code to test officesCreate
-        //instance.officesCreate(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('officesList', function() {
       it('should call officesList successfully', function(done) {
         //uncomment below and update the code to test officesList

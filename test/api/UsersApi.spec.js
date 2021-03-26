@@ -48,16 +48,6 @@
   }
 
   describe('UsersApi', function() {
-    describe('usersCreate', function() {
-      it('should call usersCreate successfully', function(done) {
-        //uncomment below and update the code to test usersCreate
-        //instance.usersCreate(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('usersList', function() {
       it('should call usersList successfully', function(done) {
         //uncomment below and update the code to test usersList

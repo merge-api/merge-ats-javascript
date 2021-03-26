@@ -48,16 +48,6 @@
   }
 
   describe('InterviewsApi', function() {
-    describe('interviewsCreate', function() {
-      it('should call interviewsCreate successfully', function(done) {
-        //uncomment below and update the code to test interviewsCreate
-        //instance.interviewsCreate(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('interviewsList', function() {
       it('should call interviewsList successfully', function(done) {
         //uncomment below and update the code to test interviewsList

@@ -48,16 +48,6 @@
   }
 
   describe('ApplicationsApi', function() {
-    describe('applicationsCreate', function() {
-      it('should call applicationsCreate successfully', function(done) {
-        //uncomment below and update the code to test applicationsCreate
-        //instance.applicationsCreate(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('applicationsList', function() {
       it('should call applicationsList successfully', function(done) {
         //uncomment below and update the code to test applicationsList

@@ -13,7 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
-import DataPassthrough from '../model/DataPassthrough';
+import DataPassthroughRequest from '../model/DataPassthroughRequest';
 import RemoteResponse from '../model/RemoteResponse';
 
 /**
@@ -46,22 +46,22 @@ export default class PassthroughApi {
     /**
      * Pull data from an endpoint not currently supported by Merge.
      * @param {String} xAccountToken Token identifying the end user.
-     * @param {module:model/DataPassthrough} dataPassthrough 
+     * @param {module:model/DataPassthroughRequest} dataPassthroughRequest 
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models.
      * @param {module:api/PassthroughApi~passthroughCreateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RemoteResponse}
      */
-    passthroughCreate(xAccountToken, dataPassthrough, opts, callback) {
+    passthroughCreate(xAccountToken, dataPassthroughRequest, opts, callback) {
       opts = opts || {};
-      let postBody = dataPassthrough;
+      let postBody = dataPassthroughRequest;
       // verify the required parameter 'xAccountToken' is set
       if (xAccountToken === undefined || xAccountToken === null) {
         throw new Error("Missing the required parameter 'xAccountToken' when calling passthroughCreate");
       }
-      // verify the required parameter 'dataPassthrough' is set
-      if (dataPassthrough === undefined || dataPassthrough === null) {
-        throw new Error("Missing the required parameter 'dataPassthrough' when calling passthroughCreate");
+      // verify the required parameter 'dataPassthroughRequest' is set
+      if (dataPassthroughRequest === undefined || dataPassthroughRequest === null) {
+        throw new Error("Missing the required parameter 'dataPassthroughRequest' when calling passthroughCreate");
       }
 
       let pathParams = {

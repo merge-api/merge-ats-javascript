@@ -48,16 +48,6 @@
   }
 
   describe('ScorecardsApi', function() {
-    describe('scorecardsCreate', function() {
-      it('should call scorecardsCreate successfully', function(done) {
-        //uncomment below and update the code to test scorecardsCreate
-        //instance.scorecardsCreate(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('scorecardsList', function() {
       it('should call scorecardsList successfully', function(done) {
         //uncomment below and update the code to test scorecardsList

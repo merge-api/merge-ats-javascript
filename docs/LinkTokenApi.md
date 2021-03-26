@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## linkTokenCreate
 
-> LinkToken linkTokenCreate(endUserDetails)
+> LinkToken linkTokenCreate(endUserDetailsRequest)
 
 
 
@@ -28,8 +28,8 @@ tokenAuth.apiKey = 'YOUR API KEY';
 //tokenAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new MergeAtsApi.LinkTokenApi();
-let endUserDetails = new MergeAtsApi.EndUserDetails(); // EndUserDetails | 
-apiInstance.linkTokenCreate(endUserDetails, (error, data, response) => {
+let endUserDetailsRequest = new MergeAtsApi.EndUserDetailsRequest(); // EndUserDetailsRequest | 
+apiInstance.linkTokenCreate(endUserDetailsRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -43,7 +43,7 @@ apiInstance.linkTokenCreate(endUserDetails, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **endUserDetails** | [**EndUserDetails**](EndUserDetails.md)|  | 
+ **endUserDetailsRequest** | [**EndUserDetailsRequest**](EndUserDetailsRequest.md)|  | 
 
 ### Return type
 

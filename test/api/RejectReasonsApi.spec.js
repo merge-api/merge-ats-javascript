@@ -48,16 +48,6 @@
   }
 
   describe('RejectReasonsApi', function() {
-    describe('rejectReasonsCreate', function() {
-      it('should call rejectReasonsCreate successfully', function(done) {
-        //uncomment below and update the code to test rejectReasonsCreate
-        //instance.rejectReasonsCreate(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('rejectReasonsList', function() {
       it('should call rejectReasonsList successfully', function(done) {
         //uncomment below and update the code to test rejectReasonsList

@@ -12,8 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
+import OfferStatusEnum from './OfferStatusEnum';
 import RemoteData from './RemoteData';
-import StatusA9fEnum from './StatusA9fEnum';
 
 /**
  * The Offer model module.
@@ -75,7 +75,7 @@ class Offer {
                 obj['start_date'] = ApiClient.convertToType(data['start_date'], 'Date');
             }
             if (data.hasOwnProperty('status')) {
-                obj['status'] = ApiClient.convertToType(data['status'], StatusA9fEnum);
+                obj['status'] = ApiClient.convertToType(data['status'], OfferStatusEnum);
             }
             if (data.hasOwnProperty('remote_data')) {
                 obj['remote_data'] = ApiClient.convertToType(data['remote_data'], [RemoteData]);
@@ -136,7 +136,7 @@ Offer.prototype['start_date'] = undefined;
 
 /**
  * The offer's status.
- * @member {module:model/StatusA9fEnum} status
+ * @member {module:model/OfferStatusEnum} status
  */
 Offer.prototype['status'] = undefined;
 

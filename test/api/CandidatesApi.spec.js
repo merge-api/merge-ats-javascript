@@ -48,16 +48,6 @@
   }
 
   describe('CandidatesApi', function() {
-    describe('candidatesCreate', function() {
-      it('should call candidatesCreate successfully', function(done) {
-        //uncomment below and update the code to test candidatesCreate
-        //instance.candidatesCreate(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('candidatesList', function() {
       it('should call candidatesList successfully', function(done) {
         //uncomment below and update the code to test candidatesList

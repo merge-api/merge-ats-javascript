@@ -13,7 +13,6 @@
 
 
 import ApiClient from "../ApiClient";
-import CreateRejectReason from '../model/CreateRejectReason';
 import PaginatedRejectReasonList from '../model/PaginatedRejectReasonList';
 import RejectReason from '../model/RejectReason';
 
@@ -35,53 +34,6 @@ export default class RejectReasonsApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
-
-    /**
-     * Callback function to receive the result of the rejectReasonsCreate operation.
-     * @callback module:api/RejectReasonsApi~rejectReasonsCreateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/RejectReason} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Creates a `RejectReason` object with the given values.
-     * @param {String} xAccountToken Token identifying the end user.
-     * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.runAsync Whether or not third-party updates should be run asynchronously.
-     * @param {module:model/CreateRejectReason} opts.createRejectReason 
-     * @param {module:api/RejectReasonsApi~rejectReasonsCreateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/RejectReason}
-     */
-    rejectReasonsCreate(xAccountToken, opts, callback) {
-      opts = opts || {};
-      let postBody = opts['createRejectReason'];
-      // verify the required parameter 'xAccountToken' is set
-      if (xAccountToken === undefined || xAccountToken === null) {
-        throw new Error("Missing the required parameter 'xAccountToken' when calling rejectReasonsCreate");
-      }
-
-      let pathParams = {
-      };
-      let queryParams = {
-        'run_async': opts['runAsync']
-      };
-      let headerParams = {
-        'X-Account-Token': xAccountToken
-      };
-      let formParams = {
-      };
-
-      let authNames = ['tokenAuth'];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'];
-      let accepts = ['application/json'];
-      let returnType = RejectReason;
-      return this.apiClient.callApi(
-        '/reject-reasons', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
 
     /**
      * Callback function to receive the result of the rejectReasonsList operation.

@@ -48,16 +48,6 @@
   }
 
   describe('ActivitiesApi', function() {
-    describe('activitiesCreate', function() {
-      it('should call activitiesCreate successfully', function(done) {
-        //uncomment below and update the code to test activitiesCreate
-        //instance.activitiesCreate(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('activitiesList', function() {
       it('should call activitiesList successfully', function(done) {
         //uncomment below and update the code to test activitiesList

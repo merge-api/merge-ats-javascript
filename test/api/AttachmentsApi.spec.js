@@ -48,16 +48,6 @@
   }
 
   describe('AttachmentsApi', function() {
-    describe('attachmentsCreate', function() {
-      it('should call attachmentsCreate successfully', function(done) {
-        //uncomment below and update the code to test attachmentsCreate
-        //instance.attachmentsCreate(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('attachmentsList', function() {
       it('should call attachmentsList successfully', function(done) {
         //uncomment below and update the code to test attachmentsList

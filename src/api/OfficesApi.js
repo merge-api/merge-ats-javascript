@@ -13,7 +13,6 @@
 
 
 import ApiClient from "../ApiClient";
-import CreateOffice from '../model/CreateOffice';
 import Office from '../model/Office';
 import PaginatedOfficeList from '../model/PaginatedOfficeList';
 
@@ -35,53 +34,6 @@ export default class OfficesApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
-
-    /**
-     * Callback function to receive the result of the officesCreate operation.
-     * @callback module:api/OfficesApi~officesCreateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Office} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Creates an `Office` object with the given values.
-     * @param {String} xAccountToken Token identifying the end user.
-     * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.runAsync Whether or not third-party updates should be run asynchronously.
-     * @param {module:model/CreateOffice} opts.createOffice 
-     * @param {module:api/OfficesApi~officesCreateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Office}
-     */
-    officesCreate(xAccountToken, opts, callback) {
-      opts = opts || {};
-      let postBody = opts['createOffice'];
-      // verify the required parameter 'xAccountToken' is set
-      if (xAccountToken === undefined || xAccountToken === null) {
-        throw new Error("Missing the required parameter 'xAccountToken' when calling officesCreate");
-      }
-
-      let pathParams = {
-      };
-      let queryParams = {
-        'run_async': opts['runAsync']
-      };
-      let headerParams = {
-        'X-Account-Token': xAccountToken
-      };
-      let formParams = {
-      };
-
-      let authNames = ['tokenAuth'];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'];
-      let accepts = ['application/json'];
-      let returnType = Office;
-      return this.apiClient.callApi(
-        '/offices', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
 
     /**
      * Callback function to receive the result of the officesList operation.

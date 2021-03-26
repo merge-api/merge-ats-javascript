@@ -48,16 +48,6 @@
   }
 
   describe('JobsApi', function() {
-    describe('jobsCreate', function() {
-      it('should call jobsCreate successfully', function(done) {
-        //uncomment below and update the code to test jobsCreate
-        //instance.jobsCreate(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('jobsList', function() {
       it('should call jobsList successfully', function(done) {
         //uncomment below and update the code to test jobsList

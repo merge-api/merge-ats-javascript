@@ -4,67 +4,9 @@ All URIs are relative to *https://api.merge.dev/api/ats/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**activitiesCreate**](ActivitiesApi.md#activitiesCreate) | **POST** /activities | 
 [**activitiesList**](ActivitiesApi.md#activitiesList) | **GET** /activities | 
 [**activitiesRetrieve**](ActivitiesApi.md#activitiesRetrieve) | **GET** /activities/{id} | 
 
-
-
-## activitiesCreate
-
-> Activity activitiesCreate(xAccountToken, opts)
-
-
-
-Creates an &#x60;Activity&#x60; object with the given values.
-
-### Example
-
-```javascript
-import MergeAtsApi from 'merge_ats_api';
-let defaultClient = MergeAtsApi.ApiClient.instance;
-// Configure API key authorization: tokenAuth
-let tokenAuth = defaultClient.authentications['tokenAuth'];
-tokenAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//tokenAuth.apiKeyPrefix = 'Token';
-
-let apiInstance = new MergeAtsApi.ActivitiesApi();
-let xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
-let opts = {
-  'runAsync': true, // Boolean | Whether or not third-party updates should be run asynchronously.
-  'createActivity': new MergeAtsApi.CreateActivity() // CreateActivity | 
-};
-apiInstance.activitiesCreate(xAccountToken, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xAccountToken** | **String**| Token identifying the end user. | 
- **runAsync** | **Boolean**| Whether or not third-party updates should be run asynchronously. | [optional] 
- **createActivity** | [**CreateActivity**](CreateActivity.md)|  | [optional] 
-
-### Return type
-
-[**Activity**](Activity.md)
-
-### Authorization
-
-[tokenAuth](../README.md#tokenAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
-- **Accept**: application/json
 
 
 ## activitiesList

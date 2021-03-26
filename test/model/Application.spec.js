@@ -78,12 +78,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property isProspect (base name: "is_prospect")', function() {
-      // uncomment below and update the code to test the property isProspect
-      //var instance = new MergeAtsApi.Application();
-      //expect(instance).to.be();
-    });
-
     it('should have the property appliedAt (base name: "applied_at")', function() {
       // uncomment below and update the code to test the property appliedAt
       //var instance = new MergeAtsApi.Application();

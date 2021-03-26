@@ -48,16 +48,6 @@
   }
 
   describe('DepartmentsApi', function() {
-    describe('departmentsCreate', function() {
-      it('should call departmentsCreate successfully', function(done) {
-        //uncomment below and update the code to test departmentsCreate
-        //instance.departmentsCreate(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('departmentsList', function() {
       it('should call departmentsList successfully', function(done) {
         //uncomment below and update the code to test departmentsList

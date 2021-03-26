@@ -13,7 +13,6 @@
 
 
 import ApiClient from "../ApiClient";
-import CreateScheduledInterview from '../model/CreateScheduledInterview';
 import PaginatedScheduledInterviewList from '../model/PaginatedScheduledInterviewList';
 import ScheduledInterview from '../model/ScheduledInterview';
 
@@ -35,53 +34,6 @@ export default class InterviewsApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
-
-    /**
-     * Callback function to receive the result of the interviewsCreate operation.
-     * @callback module:api/InterviewsApi~interviewsCreateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ScheduledInterview} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Creates a `ScheduledInterview` object with the given values.
-     * @param {String} xAccountToken Token identifying the end user.
-     * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.runAsync Whether or not third-party updates should be run asynchronously.
-     * @param {module:model/CreateScheduledInterview} opts.createScheduledInterview 
-     * @param {module:api/InterviewsApi~interviewsCreateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ScheduledInterview}
-     */
-    interviewsCreate(xAccountToken, opts, callback) {
-      opts = opts || {};
-      let postBody = opts['createScheduledInterview'];
-      // verify the required parameter 'xAccountToken' is set
-      if (xAccountToken === undefined || xAccountToken === null) {
-        throw new Error("Missing the required parameter 'xAccountToken' when calling interviewsCreate");
-      }
-
-      let pathParams = {
-      };
-      let queryParams = {
-        'run_async': opts['runAsync']
-      };
-      let headerParams = {
-        'X-Account-Token': xAccountToken
-      };
-      let formParams = {
-      };
-
-      let authNames = ['tokenAuth'];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'];
-      let accepts = ['application/json'];
-      let returnType = ScheduledInterview;
-      return this.apiClient.callApi(
-        '/interviews', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
 
     /**
      * Callback function to receive the result of the interviewsList operation.

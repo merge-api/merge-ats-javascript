@@ -48,16 +48,6 @@
   }
 
   describe('TagsApi', function() {
-    describe('tagsCreate', function() {
-      it('should call tagsCreate successfully', function(done) {
-        //uncomment below and update the code to test tagsCreate
-        //instance.tagsCreate(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('tagsList', function() {
       it('should call tagsList successfully', function(done) {
         //uncomment below and update the code to test tagsList

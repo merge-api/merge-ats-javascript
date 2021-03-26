@@ -13,7 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
-import EndUserDetails from '../model/EndUserDetails';
+import EndUserDetailsRequest from '../model/EndUserDetailsRequest';
 import LinkToken from '../model/LinkToken';
 
 /**
@@ -45,15 +45,15 @@ export default class LinkTokenApi {
 
     /**
      * Creates a link token to be used when linking a new end user.
-     * @param {module:model/EndUserDetails} endUserDetails 
+     * @param {module:model/EndUserDetailsRequest} endUserDetailsRequest 
      * @param {module:api/LinkTokenApi~linkTokenCreateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/LinkToken}
      */
-    linkTokenCreate(endUserDetails, callback) {
-      let postBody = endUserDetails;
-      // verify the required parameter 'endUserDetails' is set
-      if (endUserDetails === undefined || endUserDetails === null) {
-        throw new Error("Missing the required parameter 'endUserDetails' when calling linkTokenCreate");
+    linkTokenCreate(endUserDetailsRequest, callback) {
+      let postBody = endUserDetailsRequest;
+      // verify the required parameter 'endUserDetailsRequest' is set
+      if (endUserDetailsRequest === undefined || endUserDetailsRequest === null) {
+        throw new Error("Missing the required parameter 'endUserDetailsRequest' when calling linkTokenCreate");
       }
 
       let pathParams = {

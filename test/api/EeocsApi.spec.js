@@ -48,16 +48,6 @@
   }
 
   describe('EeocsApi', function() {
-    describe('eeocsCreate', function() {
-      it('should call eeocsCreate successfully', function(done) {
-        //uncomment below and update the code to test eeocsCreate
-        //instance.eeocsCreate(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('eeocsList', function() {
       it('should call eeocsList successfully', function(done) {
         //uncomment below and update the code to test eeocsList

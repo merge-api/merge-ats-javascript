@@ -22,34 +22,22 @@ import Application from './model/Application';
 import Attachment from './model/Attachment';
 import AvailableActions from './model/AvailableActions';
 import Candidate from './model/Candidate';
-import CreateActivity from './model/CreateActivity';
-import CreateApplication from './model/CreateApplication';
-import CreateAttachment from './model/CreateAttachment';
-import CreateCandidate from './model/CreateCandidate';
-import CreateDepartment from './model/CreateDepartment';
-import CreateJob from './model/CreateJob';
-import CreateJobInterviewStage from './model/CreateJobInterviewStage';
-import CreateOffer from './model/CreateOffer';
-import CreateOffice from './model/CreateOffice';
-import CreateRejectReason from './model/CreateRejectReason';
-import CreateRemoteUser from './model/CreateRemoteUser';
-import CreateScheduledInterview from './model/CreateScheduledInterview';
-import CreateScorecard from './model/CreateScorecard';
-import CreateTag from './model/CreateTag';
-import DataPassthrough from './model/DataPassthrough';
+import DataPassthroughRequest from './model/DataPassthroughRequest';
 import Department from './model/Department';
 import DisabilityStatusEnum from './model/DisabilityStatusEnum';
 import EEOC from './model/EEOC';
 import EmailAddress from './model/EmailAddress';
 import EmailAddressTypeEnum from './model/EmailAddressTypeEnum';
-import EndUserDetails from './model/EndUserDetails';
+import EndUserDetailsRequest from './model/EndUserDetailsRequest';
 import GenderEnum from './model/GenderEnum';
 import Job from './model/Job';
 import JobInterviewStage from './model/JobInterviewStage';
+import JobStatusEnum from './model/JobStatusEnum';
 import LinkToken from './model/LinkToken';
 import MethodEnum from './model/MethodEnum';
 import ModelOperation from './model/ModelOperation';
 import Offer from './model/Offer';
+import OfferStatusEnum from './model/OfferStatusEnum';
 import Office from './model/Office';
 import OverallRecommendationEnum from './model/OverallRecommendationEnum';
 import PaginatedActivityList from './model/PaginatedActivityList';
@@ -72,13 +60,13 @@ import PhoneNumberTypeEnum from './model/PhoneNumberTypeEnum';
 import RaceEnum from './model/RaceEnum';
 import RejectReason from './model/RejectReason';
 import RemoteData from './model/RemoteData';
+import RemoteKey from './model/RemoteKey';
+import RemoteKeyForRegenerationRequest from './model/RemoteKeyForRegenerationRequest';
 import RemoteResponse from './model/RemoteResponse';
 import RemoteUser from './model/RemoteUser';
 import ScheduledInterview from './model/ScheduledInterview';
+import ScheduledInterviewStatusEnum from './model/ScheduledInterviewStatusEnum';
 import Scorecard from './model/Scorecard';
-import Status007Enum from './model/Status007Enum';
-import Status757Enum from './model/Status757Enum';
-import StatusA9fEnum from './model/StatusA9fEnum';
 import Tag from './model/Tag';
 import Url from './model/Url';
 import UrlTypeEnum from './model/UrlTypeEnum';
@@ -99,6 +87,7 @@ import LinkTokenApi from './api/LinkTokenApi';
 import OffersApi from './api/OffersApi';
 import OfficesApi from './api/OfficesApi';
 import PassthroughApi from './api/PassthroughApi';
+import RegenerateKeyApi from './api/RegenerateKeyApi';
 import RejectReasonsApi from './api/RejectReasonsApi';
 import ScorecardsApi from './api/ScorecardsApi';
 import TagsApi from './api/TagsApi';
@@ -198,94 +187,10 @@ export {
     Candidate,
 
     /**
-     * The CreateActivity model constructor.
-     * @property {module:model/CreateActivity}
+     * The DataPassthroughRequest model constructor.
+     * @property {module:model/DataPassthroughRequest}
      */
-    CreateActivity,
-
-    /**
-     * The CreateApplication model constructor.
-     * @property {module:model/CreateApplication}
-     */
-    CreateApplication,
-
-    /**
-     * The CreateAttachment model constructor.
-     * @property {module:model/CreateAttachment}
-     */
-    CreateAttachment,
-
-    /**
-     * The CreateCandidate model constructor.
-     * @property {module:model/CreateCandidate}
-     */
-    CreateCandidate,
-
-    /**
-     * The CreateDepartment model constructor.
-     * @property {module:model/CreateDepartment}
-     */
-    CreateDepartment,
-
-    /**
-     * The CreateJob model constructor.
-     * @property {module:model/CreateJob}
-     */
-    CreateJob,
-
-    /**
-     * The CreateJobInterviewStage model constructor.
-     * @property {module:model/CreateJobInterviewStage}
-     */
-    CreateJobInterviewStage,
-
-    /**
-     * The CreateOffer model constructor.
-     * @property {module:model/CreateOffer}
-     */
-    CreateOffer,
-
-    /**
-     * The CreateOffice model constructor.
-     * @property {module:model/CreateOffice}
-     */
-    CreateOffice,
-
-    /**
-     * The CreateRejectReason model constructor.
-     * @property {module:model/CreateRejectReason}
-     */
-    CreateRejectReason,
-
-    /**
-     * The CreateRemoteUser model constructor.
-     * @property {module:model/CreateRemoteUser}
-     */
-    CreateRemoteUser,
-
-    /**
-     * The CreateScheduledInterview model constructor.
-     * @property {module:model/CreateScheduledInterview}
-     */
-    CreateScheduledInterview,
-
-    /**
-     * The CreateScorecard model constructor.
-     * @property {module:model/CreateScorecard}
-     */
-    CreateScorecard,
-
-    /**
-     * The CreateTag model constructor.
-     * @property {module:model/CreateTag}
-     */
-    CreateTag,
-
-    /**
-     * The DataPassthrough model constructor.
-     * @property {module:model/DataPassthrough}
-     */
-    DataPassthrough,
+    DataPassthroughRequest,
 
     /**
      * The Department model constructor.
@@ -318,10 +223,10 @@ export {
     EmailAddressTypeEnum,
 
     /**
-     * The EndUserDetails model constructor.
-     * @property {module:model/EndUserDetails}
+     * The EndUserDetailsRequest model constructor.
+     * @property {module:model/EndUserDetailsRequest}
      */
-    EndUserDetails,
+    EndUserDetailsRequest,
 
     /**
      * The GenderEnum model constructor.
@@ -340,6 +245,12 @@ export {
      * @property {module:model/JobInterviewStage}
      */
     JobInterviewStage,
+
+    /**
+     * The JobStatusEnum model constructor.
+     * @property {module:model/JobStatusEnum}
+     */
+    JobStatusEnum,
 
     /**
      * The LinkToken model constructor.
@@ -364,6 +275,12 @@ export {
      * @property {module:model/Offer}
      */
     Offer,
+
+    /**
+     * The OfferStatusEnum model constructor.
+     * @property {module:model/OfferStatusEnum}
+     */
+    OfferStatusEnum,
 
     /**
      * The Office model constructor.
@@ -498,6 +415,18 @@ export {
     RemoteData,
 
     /**
+     * The RemoteKey model constructor.
+     * @property {module:model/RemoteKey}
+     */
+    RemoteKey,
+
+    /**
+     * The RemoteKeyForRegenerationRequest model constructor.
+     * @property {module:model/RemoteKeyForRegenerationRequest}
+     */
+    RemoteKeyForRegenerationRequest,
+
+    /**
      * The RemoteResponse model constructor.
      * @property {module:model/RemoteResponse}
      */
@@ -516,28 +445,16 @@ export {
     ScheduledInterview,
 
     /**
+     * The ScheduledInterviewStatusEnum model constructor.
+     * @property {module:model/ScheduledInterviewStatusEnum}
+     */
+    ScheduledInterviewStatusEnum,
+
+    /**
      * The Scorecard model constructor.
      * @property {module:model/Scorecard}
      */
     Scorecard,
-
-    /**
-     * The Status007Enum model constructor.
-     * @property {module:model/Status007Enum}
-     */
-    Status007Enum,
-
-    /**
-     * The Status757Enum model constructor.
-     * @property {module:model/Status757Enum}
-     */
-    Status757Enum,
-
-    /**
-     * The StatusA9fEnum model constructor.
-     * @property {module:model/StatusA9fEnum}
-     */
-    StatusA9fEnum,
 
     /**
      * The Tag model constructor.
@@ -658,6 +575,12 @@ export {
     * @property {module:api/PassthroughApi}
     */
     PassthroughApi,
+
+    /**
+    * The RegenerateKeyApi service constructor.
+    * @property {module:api/RegenerateKeyApi}
+    */
+    RegenerateKeyApi,
 
     /**
     * The RejectReasonsApi service constructor.

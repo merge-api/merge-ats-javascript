@@ -14,7 +14,6 @@
 
 import ApiClient from "../ApiClient";
 import Attachment from '../model/Attachment';
-import CreateAttachment from '../model/CreateAttachment';
 import PaginatedAttachmentList from '../model/PaginatedAttachmentList';
 
 /**
@@ -35,53 +34,6 @@ export default class AttachmentsApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
-
-    /**
-     * Callback function to receive the result of the attachmentsCreate operation.
-     * @callback module:api/AttachmentsApi~attachmentsCreateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Attachment} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Creates an `Attachment` object with the given values.
-     * @param {String} xAccountToken Token identifying the end user.
-     * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.runAsync Whether or not third-party updates should be run asynchronously.
-     * @param {module:model/CreateAttachment} opts.createAttachment 
-     * @param {module:api/AttachmentsApi~attachmentsCreateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Attachment}
-     */
-    attachmentsCreate(xAccountToken, opts, callback) {
-      opts = opts || {};
-      let postBody = opts['createAttachment'];
-      // verify the required parameter 'xAccountToken' is set
-      if (xAccountToken === undefined || xAccountToken === null) {
-        throw new Error("Missing the required parameter 'xAccountToken' when calling attachmentsCreate");
-      }
-
-      let pathParams = {
-      };
-      let queryParams = {
-        'run_async': opts['runAsync']
-      };
-      let headerParams = {
-        'X-Account-Token': xAccountToken
-      };
-      let formParams = {
-      };
-
-      let authNames = ['tokenAuth'];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'];
-      let accepts = ['application/json'];
-      let returnType = Attachment;
-      return this.apiClient.callApi(
-        '/attachments', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
 
     /**
      * Callback function to receive the result of the attachmentsList operation.

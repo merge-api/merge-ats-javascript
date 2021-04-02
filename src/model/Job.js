@@ -12,8 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
+import JobStatusEnum from './JobStatusEnum';
 import RemoteData from './RemoteData';
-import Status757Enum from './Status757Enum';
 
 /**
  * The Job model module.
@@ -23,7 +23,7 @@ import Status757Enum from './Status757Enum';
 class Job {
     /**
      * Constructs a new <code>Job</code>.
-     * # The Job Object ### Description The &#x60;Job&#x60; object is used to represent a Location offering at a company.  ### Usage Example Fetch from the &#x60;LIST Jobs&#x60; endpoint and filter by &#x60;ID&#x60; to show all job postings.
+     * # The Job Object ### Description The &#x60;Job&#x60; object is used to represent a Job offering at a company.  ### Usage Example Fetch from the &#x60;LIST Jobs&#x60; endpoint to show all job postings.
      * @alias module:model/Job
      */
     constructor() { 
@@ -63,7 +63,7 @@ class Job {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
             if (data.hasOwnProperty('status')) {
-                obj['status'] = ApiClient.convertToType(data['status'], Status757Enum);
+                obj['status'] = ApiClient.convertToType(data['status'], JobStatusEnum);
             }
             if (data.hasOwnProperty('remote_created_at')) {
                 obj['remote_created_at'] = ApiClient.convertToType(data['remote_created_at'], 'Date');
@@ -118,7 +118,7 @@ Job.prototype['description'] = undefined;
 
 /**
  * The job's status.
- * @member {module:model/Status757Enum} status
+ * @member {module:model/JobStatusEnum} status
  */
 Job.prototype['status'] = undefined;
 

@@ -4,67 +4,9 @@ All URIs are relative to *https://api.merge.dev/api/ats/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**rejectReasonsCreate**](RejectReasonsApi.md#rejectReasonsCreate) | **POST** /reject-reasons | 
 [**rejectReasonsList**](RejectReasonsApi.md#rejectReasonsList) | **GET** /reject-reasons | 
 [**rejectReasonsRetrieve**](RejectReasonsApi.md#rejectReasonsRetrieve) | **GET** /reject-reasons/{id} | 
 
-
-
-## rejectReasonsCreate
-
-> RejectReason rejectReasonsCreate(xAccountToken, opts)
-
-
-
-Creates a &#x60;RejectReason&#x60; object with the given values.
-
-### Example
-
-```javascript
-import MergeAtsApi from 'merge_ats_api';
-let defaultClient = MergeAtsApi.ApiClient.instance;
-// Configure API key authorization: tokenAuth
-let tokenAuth = defaultClient.authentications['tokenAuth'];
-tokenAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//tokenAuth.apiKeyPrefix = 'Token';
-
-let apiInstance = new MergeAtsApi.RejectReasonsApi();
-let xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
-let opts = {
-  'runAsync': true, // Boolean | Whether or not third-party updates should be run asynchronously.
-  'createRejectReason': new MergeAtsApi.CreateRejectReason() // CreateRejectReason | 
-};
-apiInstance.rejectReasonsCreate(xAccountToken, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xAccountToken** | **String**| Token identifying the end user. | 
- **runAsync** | **Boolean**| Whether or not third-party updates should be run asynchronously. | [optional] 
- **createRejectReason** | [**CreateRejectReason**](CreateRejectReason.md)|  | [optional] 
-
-### Return type
-
-[**RejectReason**](RejectReason.md)
-
-### Authorization
-
-[tokenAuth](../README.md#tokenAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
-- **Accept**: application/json
 
 
 ## rejectReasonsList

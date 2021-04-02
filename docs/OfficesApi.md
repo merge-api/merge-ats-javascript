@@ -4,67 +4,9 @@ All URIs are relative to *https://api.merge.dev/api/ats/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**officesCreate**](OfficesApi.md#officesCreate) | **POST** /offices | 
 [**officesList**](OfficesApi.md#officesList) | **GET** /offices | 
 [**officesRetrieve**](OfficesApi.md#officesRetrieve) | **GET** /offices/{id} | 
 
-
-
-## officesCreate
-
-> Office officesCreate(xAccountToken, opts)
-
-
-
-Creates an &#x60;Office&#x60; object with the given values.
-
-### Example
-
-```javascript
-import MergeAtsApi from 'merge_ats_api';
-let defaultClient = MergeAtsApi.ApiClient.instance;
-// Configure API key authorization: tokenAuth
-let tokenAuth = defaultClient.authentications['tokenAuth'];
-tokenAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//tokenAuth.apiKeyPrefix = 'Token';
-
-let apiInstance = new MergeAtsApi.OfficesApi();
-let xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
-let opts = {
-  'runAsync': true, // Boolean | Whether or not third-party updates should be run asynchronously.
-  'createOffice': new MergeAtsApi.CreateOffice() // CreateOffice | 
-};
-apiInstance.officesCreate(xAccountToken, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xAccountToken** | **String**| Token identifying the end user. | 
- **runAsync** | **Boolean**| Whether or not third-party updates should be run asynchronously. | [optional] 
- **createOffice** | [**CreateOffice**](CreateOffice.md)|  | [optional] 
-
-### Return type
-
-[**Office**](Office.md)
-
-### Authorization
-
-[tokenAuth](../README.md#tokenAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
-- **Accept**: application/json
 
 
 ## officesList

@@ -22,7 +22,7 @@ import RemoteData from './RemoteData';
 class Attachment {
     /**
      * Constructs a new <code>Attachment</code>.
-     * # The Attachment Object ### Description The &#x60;Attachment&#x60; object is used to represent a attachment for a candidate.  ### Usage Example Fetch from the &#x60;GET Candidate&#x60; endpoint and view their attachments.
+     * # The Attachment Object ### Description The &#x60;Attachment&#x60; object is used to represent a attachment for a candidate.  ### Usage Example Fetch from the &#x60;LIST Attachments&#x60; endpoint and view attachments accessible by a company.
      * @alias module:model/Attachment
      */
     constructor() { 

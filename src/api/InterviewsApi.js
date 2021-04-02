@@ -13,7 +13,6 @@
 
 
 import ApiClient from "../ApiClient";
-import CreateScheduledInterview from '../model/CreateScheduledInterview';
 import PaginatedScheduledInterviewList from '../model/PaginatedScheduledInterviewList';
 import ScheduledInterview from '../model/ScheduledInterview';
 
@@ -37,53 +36,6 @@ export default class InterviewsApi {
 
 
     /**
-     * Callback function to receive the result of the interviewsCreate operation.
-     * @callback module:api/InterviewsApi~interviewsCreateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ScheduledInterview} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Creates a `ScheduledInterview` object with the given values.
-     * @param {String} xAccountToken Token identifying the end user.
-     * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.runAsync Whether or not third-party updates should be run asynchronously.
-     * @param {module:model/CreateScheduledInterview} opts.createScheduledInterview 
-     * @param {module:api/InterviewsApi~interviewsCreateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ScheduledInterview}
-     */
-    interviewsCreate(xAccountToken, opts, callback) {
-      opts = opts || {};
-      let postBody = opts['createScheduledInterview'];
-      // verify the required parameter 'xAccountToken' is set
-      if (xAccountToken === undefined || xAccountToken === null) {
-        throw new Error("Missing the required parameter 'xAccountToken' when calling interviewsCreate");
-      }
-
-      let pathParams = {
-      };
-      let queryParams = {
-        'run_async': opts['runAsync']
-      };
-      let headerParams = {
-        'X-Account-Token': xAccountToken
-      };
-      let formParams = {
-      };
-
-      let authNames = ['tokenAuth'];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'];
-      let accepts = ['application/json'];
-      let returnType = ScheduledInterview;
-      return this.apiClient.callApi(
-        '/interviews', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
      * Callback function to receive the result of the interviewsList operation.
      * @callback module:api/InterviewsApi~interviewsListCallback
      * @param {String} error Error message, if any.
@@ -99,6 +51,7 @@ export default class InterviewsApi {
      * @param {Date} opts.createdAfter If provided, will only return objects created after this datetime.
      * @param {Date} opts.createdBefore If provided, will only return objects created before this datetime.
      * @param {String} opts.cursor The pagination cursor value.
+     * @param {module:model/String} opts.expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
      * @param {Boolean} opts.includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models.
      * @param {String} opts.jobInterviewStageId If provided, will only return interviews at this stage.
      * @param {Date} opts.modifiedAfter If provided, will only return objects modified after this datetime.
@@ -124,6 +77,7 @@ export default class InterviewsApi {
         'created_after': opts['createdAfter'],
         'created_before': opts['createdBefore'],
         'cursor': opts['cursor'],
+        'expand': opts['expand'],
         'include_remote_data': opts['includeRemoteData'],
         'job_interview_stage_id': opts['jobInterviewStageId'],
         'modified_after': opts['modifiedAfter'],
@@ -162,6 +116,7 @@ export default class InterviewsApi {
      * @param {String} xAccountToken Token identifying the end user.
      * @param {String} id 
      * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
      * @param {Boolean} opts.includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models.
      * @param {module:api/InterviewsApi~interviewsRetrieveCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ScheduledInterview}
@@ -182,6 +137,7 @@ export default class InterviewsApi {
         'id': id
       };
       let queryParams = {
+        'expand': opts['expand'],
         'include_remote_data': opts['includeRemoteData']
       };
       let headerParams = {

@@ -45,13 +45,10 @@ export default class AvailableActionsApi {
     /**
      * Returns a list of models and actions available for an account.
      * @param {String} xAccountToken Token identifying the end user.
-     * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models.
      * @param {module:api/AvailableActionsApi~availableActionsRetrieveCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AvailableActions}
      */
-    availableActionsRetrieve(xAccountToken, opts, callback) {
-      opts = opts || {};
+    availableActionsRetrieve(xAccountToken, callback) {
       let postBody = null;
       // verify the required parameter 'xAccountToken' is set
       if (xAccountToken === undefined || xAccountToken === null) {
@@ -61,7 +58,6 @@ export default class AvailableActionsApi {
       let pathParams = {
       };
       let queryParams = {
-        'include_remote_data': opts['includeRemoteData']
       };
       let headerParams = {
         'X-Account-Token': xAccountToken

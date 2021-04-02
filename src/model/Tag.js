@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class Tag {
     /**
      * Constructs a new <code>Tag</code>.
-     * # The Tag Object ### Description The &#x60;Tag&#x60; object is used to represent a tag for a candidate.  ### Usage Example Fetch from the &#x60;GET Candidate&#x60; endpoint and view their tags.
+     * # The Tag Object ### Description The &#x60;Tag&#x60; object is used to represent a tag for a candidate.  ### Usage Example Fetch from the &#x60;LIST Tags&#x60; endpoint and view the tags used within a company.
      * @alias module:model/Tag
      */
     constructor() { 

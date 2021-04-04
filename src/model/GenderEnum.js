@@ -34,6 +34,20 @@ export default class GenderEnum {
 
     
         /**
+         * value: "NON-BINARY"
+         * @const
+         */
+        "NON-BINARY" = "NON-BINARY";
+
+    
+        /**
+         * value: "OTHER"
+         * @const
+         */
+        "OTHER" = "OTHER";
+
+    
+        /**
          * value: "DECLINE_TO_SELF_IDENTIFY"
          * @const
          */

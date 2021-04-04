@@ -6,13 +6,14 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**applicationsCreate**](ApplicationsApi.md#applicationsCreate) | **POST** /applications | 
 [**applicationsList**](ApplicationsApi.md#applicationsList) | **GET** /applications | 
+[**applicationsPartialUpdate**](ApplicationsApi.md#applicationsPartialUpdate) | **PATCH** /applications/{id} | 
 [**applicationsRetrieve**](ApplicationsApi.md#applicationsRetrieve) | **GET** /applications/{id} | 
 
 
 
 ## applicationsCreate
 
-> Application applicationsCreate(xAccountToken, opts)
+> Application applicationsCreate(xAccountToken, remoteUserId, opts)
 
 
 
@@ -31,11 +32,12 @@ tokenAuth.apiKey = 'YOUR API KEY';
 
 let apiInstance = new MergeAtsApi.ApplicationsApi();
 let xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
+let remoteUserId = "remoteUserId_example"; // String | The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
 let opts = {
   'runAsync': true, // Boolean | Whether or not third-party updates should be run asynchronously.
-  'createApplication': new MergeAtsApi.CreateApplication() // CreateApplication | 
+  'applicationRequest': new MergeAtsApi.ApplicationRequest() // ApplicationRequest | 
 };
-apiInstance.applicationsCreate(xAccountToken, opts, (error, data, response) => {
+apiInstance.applicationsCreate(xAccountToken, remoteUserId, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -50,8 +52,9 @@ apiInstance.applicationsCreate(xAccountToken, opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xAccountToken** | **String**| Token identifying the end user. | 
+ **remoteUserId** | **String**| The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. | 
  **runAsync** | **Boolean**| Whether or not third-party updates should be run asynchronously. | [optional] 
- **createApplication** | [**CreateApplication**](CreateApplication.md)|  | [optional] 
+ **applicationRequest** | [**ApplicationRequest**](ApplicationRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -95,6 +98,7 @@ let opts = {
   'creditedToId': "creditedToId_example", // String | If provided, will only return applications credited to this user.
   'currentStageId': "currentStageId_example", // String | If provided, will only return applications at this interview stage.
   'cursor': cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw, // String | The pagination cursor value.
+  'expand': candidate,job,credited_to,current_stage,reject_reason, // String | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
   'includeRemoteData': true, // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
   'jobId': "jobId_example", // String | If provided, will only return applications for this job.
   'modifiedAfter': new Date("2013-10-20T19:20:30+01:00"), // Date | If provided, will only return objects modified after this datetime.
@@ -124,6 +128,7 @@ Name | Type | Description  | Notes
  **creditedToId** | **String**| If provided, will only return applications credited to this user. | [optional] 
  **currentStageId** | **String**| If provided, will only return applications at this interview stage. | [optional] 
  **cursor** | **String**| The pagination cursor value. | [optional] 
+ **expand** | **String**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] 
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional] 
  **jobId** | **String**| If provided, will only return applications for this job. | [optional] 
  **modifiedAfter** | **Date**| If provided, will only return objects modified after this datetime. | [optional] 
@@ -143,6 +148,67 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## applicationsPartialUpdate
+
+> Application applicationsPartialUpdate(xAccountToken, id, remoteUserId, opts)
+
+
+
+Updates an &#x60;Application&#x60; object with the given &#x60;id&#x60;.
+
+### Example
+
+```javascript
+import MergeAtsApi from 'merge_ats_api';
+let defaultClient = MergeAtsApi.ApiClient.instance;
+// Configure API key authorization: tokenAuth
+let tokenAuth = defaultClient.authentications['tokenAuth'];
+tokenAuth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//tokenAuth.apiKeyPrefix = 'Token';
+
+let apiInstance = new MergeAtsApi.ApplicationsApi();
+let xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
+let id = null; // String | 
+let remoteUserId = "remoteUserId_example"; // String | The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
+let opts = {
+  'runAsync': true, // Boolean | Whether or not third-party updates should be run asynchronously.
+  'patchedApplicationRequest': new MergeAtsApi.PatchedApplicationRequest() // PatchedApplicationRequest | 
+};
+apiInstance.applicationsPartialUpdate(xAccountToken, id, remoteUserId, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xAccountToken** | **String**| Token identifying the end user. | 
+ **id** | [**String**](.md)|  | 
+ **remoteUserId** | **String**| The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. | 
+ **runAsync** | **Boolean**| Whether or not third-party updates should be run asynchronously. | [optional] 
+ **patchedApplicationRequest** | [**PatchedApplicationRequest**](PatchedApplicationRequest.md)|  | [optional] 
+
+### Return type
+
+[**Application**](Application.md)
+
+### Authorization
+
+[tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
 - **Accept**: application/json
 
 
@@ -169,6 +235,7 @@ let apiInstance = new MergeAtsApi.ApplicationsApi();
 let xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
 let id = null; // String | 
 let opts = {
+  'expand': candidate,job,credited_to,current_stage,reject_reason, // String | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
   'includeRemoteData': true // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
 };
 apiInstance.applicationsRetrieve(xAccountToken, id, opts, (error, data, response) => {
@@ -187,6 +254,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xAccountToken** | **String**| Token identifying the end user. | 
  **id** | [**String**](.md)|  | 
+ **expand** | **String**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] 
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional] 
 
 ### Return type

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## availableActionsRetrieve
 
-> AvailableActions availableActionsRetrieve(xAccountToken, opts)
+> AvailableActions availableActionsRetrieve(xAccountToken)
 
 
 
@@ -29,10 +29,7 @@ tokenAuth.apiKey = 'YOUR API KEY';
 
 let apiInstance = new MergeAtsApi.AvailableActionsApi();
 let xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
-let opts = {
-  'includeRemoteData': true // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
-};
-apiInstance.availableActionsRetrieve(xAccountToken, opts, (error, data, response) => {
+apiInstance.availableActionsRetrieve(xAccountToken, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -47,7 +44,6 @@ apiInstance.availableActionsRetrieve(xAccountToken, opts, (error, data, response
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xAccountToken** | **String**| Token identifying the end user. | 
- **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional] 
 
 ### Return type
 

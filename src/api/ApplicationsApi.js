@@ -14,8 +14,9 @@
 
 import ApiClient from "../ApiClient";
 import Application from '../model/Application';
-import CreateApplication from '../model/CreateApplication';
+import ApplicationRequest from '../model/ApplicationRequest';
 import PaginatedApplicationList from '../model/PaginatedApplicationList';
+import PatchedApplicationRequest from '../model/PatchedApplicationRequest';
 
 /**
 * Applications service.
@@ -47,23 +48,29 @@ export default class ApplicationsApi {
     /**
      * Creates an `Application` object with the given values.
      * @param {String} xAccountToken Token identifying the end user.
+     * @param {String} remoteUserId The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.runAsync Whether or not third-party updates should be run asynchronously.
-     * @param {module:model/CreateApplication} opts.createApplication 
+     * @param {module:model/ApplicationRequest} opts.applicationRequest 
      * @param {module:api/ApplicationsApi~applicationsCreateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Application}
      */
-    applicationsCreate(xAccountToken, opts, callback) {
+    applicationsCreate(xAccountToken, remoteUserId, opts, callback) {
       opts = opts || {};
-      let postBody = opts['createApplication'];
+      let postBody = opts['applicationRequest'];
       // verify the required parameter 'xAccountToken' is set
       if (xAccountToken === undefined || xAccountToken === null) {
         throw new Error("Missing the required parameter 'xAccountToken' when calling applicationsCreate");
+      }
+      // verify the required parameter 'remoteUserId' is set
+      if (remoteUserId === undefined || remoteUserId === null) {
+        throw new Error("Missing the required parameter 'remoteUserId' when calling applicationsCreate");
       }
 
       let pathParams = {
       };
       let queryParams = {
+        'remote_user_id': remoteUserId,
         'run_async': opts['runAsync']
       };
       let headerParams = {
@@ -101,6 +108,7 @@ export default class ApplicationsApi {
      * @param {String} opts.creditedToId If provided, will only return applications credited to this user.
      * @param {String} opts.currentStageId If provided, will only return applications at this interview stage.
      * @param {String} opts.cursor The pagination cursor value.
+     * @param {module:model/String} opts.expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
      * @param {Boolean} opts.includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models.
      * @param {String} opts.jobId If provided, will only return applications for this job.
      * @param {Date} opts.modifiedAfter If provided, will only return objects modified after this datetime.
@@ -128,6 +136,7 @@ export default class ApplicationsApi {
         'credited_to_id': opts['creditedToId'],
         'current_stage_id': opts['currentStageId'],
         'cursor': opts['cursor'],
+        'expand': opts['expand'],
         'include_remote_data': opts['includeRemoteData'],
         'job_id': opts['jobId'],
         'modified_after': opts['modifiedAfter'],
@@ -154,6 +163,65 @@ export default class ApplicationsApi {
     }
 
     /**
+     * Callback function to receive the result of the applicationsPartialUpdate operation.
+     * @callback module:api/ApplicationsApi~applicationsPartialUpdateCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/Application} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Updates an `Application` object with the given `id`.
+     * @param {String} xAccountToken Token identifying the end user.
+     * @param {String} id 
+     * @param {String} remoteUserId The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.runAsync Whether or not third-party updates should be run asynchronously.
+     * @param {module:model/PatchedApplicationRequest} opts.patchedApplicationRequest 
+     * @param {module:api/ApplicationsApi~applicationsPartialUpdateCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/Application}
+     */
+    applicationsPartialUpdate(xAccountToken, id, remoteUserId, opts, callback) {
+      opts = opts || {};
+      let postBody = opts['patchedApplicationRequest'];
+      // verify the required parameter 'xAccountToken' is set
+      if (xAccountToken === undefined || xAccountToken === null) {
+        throw new Error("Missing the required parameter 'xAccountToken' when calling applicationsPartialUpdate");
+      }
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling applicationsPartialUpdate");
+      }
+      // verify the required parameter 'remoteUserId' is set
+      if (remoteUserId === undefined || remoteUserId === null) {
+        throw new Error("Missing the required parameter 'remoteUserId' when calling applicationsPartialUpdate");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+        'remote_user_id': remoteUserId,
+        'run_async': opts['runAsync']
+      };
+      let headerParams = {
+        'X-Account-Token': xAccountToken
+      };
+      let formParams = {
+      };
+
+      let authNames = ['tokenAuth'];
+      let contentTypes = ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'];
+      let accepts = ['application/json'];
+      let returnType = Application;
+      return this.apiClient.callApi(
+        '/applications/{id}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the applicationsRetrieve operation.
      * @callback module:api/ApplicationsApi~applicationsRetrieveCallback
      * @param {String} error Error message, if any.
@@ -166,6 +234,7 @@ export default class ApplicationsApi {
      * @param {String} xAccountToken Token identifying the end user.
      * @param {String} id 
      * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
      * @param {Boolean} opts.includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models.
      * @param {module:api/ApplicationsApi~applicationsRetrieveCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Application}
@@ -186,6 +255,7 @@ export default class ApplicationsApi {
         'id': id
       };
       let queryParams = {
+        'expand': opts['expand'],
         'include_remote_data': opts['includeRemoteData']
       };
       let headerParams = {

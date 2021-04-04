@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **endAt** | **Date** | When the interview was ended. | [optional] 
 **remoteCreatedAt** | **Date** | When the third party&#39;s interview was created. | [optional] 
 **remoteUpdatedAt** | **Date** | When the third party&#39;s interview was updated. | [optional] 
-**status** | [**Status007Enum**](Status007Enum.md) | The interview&#39;s status. | [optional] 
+**status** | [**ScheduledInterviewStatusEnum**](ScheduledInterviewStatusEnum.md) | The interview&#39;s status. | [optional] 
 **remoteData** | [**[RemoteData]**](RemoteData.md) |  | [optional] [readonly] 
 
 

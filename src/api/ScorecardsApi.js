@@ -13,7 +13,6 @@
 
 
 import ApiClient from "../ApiClient";
-import CreateScorecard from '../model/CreateScorecard';
 import PaginatedScorecardList from '../model/PaginatedScorecardList';
 import Scorecard from '../model/Scorecard';
 
@@ -37,53 +36,6 @@ export default class ScorecardsApi {
 
 
     /**
-     * Callback function to receive the result of the scorecardsCreate operation.
-     * @callback module:api/ScorecardsApi~scorecardsCreateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Scorecard} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Creates a `Scorecard` object with the given values.
-     * @param {String} xAccountToken Token identifying the end user.
-     * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.runAsync Whether or not third-party updates should be run asynchronously.
-     * @param {module:model/CreateScorecard} opts.createScorecard 
-     * @param {module:api/ScorecardsApi~scorecardsCreateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Scorecard}
-     */
-    scorecardsCreate(xAccountToken, opts, callback) {
-      opts = opts || {};
-      let postBody = opts['createScorecard'];
-      // verify the required parameter 'xAccountToken' is set
-      if (xAccountToken === undefined || xAccountToken === null) {
-        throw new Error("Missing the required parameter 'xAccountToken' when calling scorecardsCreate");
-      }
-
-      let pathParams = {
-      };
-      let queryParams = {
-        'run_async': opts['runAsync']
-      };
-      let headerParams = {
-        'X-Account-Token': xAccountToken
-      };
-      let formParams = {
-      };
-
-      let authNames = ['tokenAuth'];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'];
-      let accepts = ['application/json'];
-      let returnType = Scorecard;
-      return this.apiClient.callApi(
-        '/scorecards', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
      * Callback function to receive the result of the scorecardsList operation.
      * @callback module:api/ScorecardsApi~scorecardsListCallback
      * @param {String} error Error message, if any.
@@ -99,6 +51,7 @@ export default class ScorecardsApi {
      * @param {Date} opts.createdAfter If provided, will only return objects created after this datetime.
      * @param {Date} opts.createdBefore If provided, will only return objects created before this datetime.
      * @param {String} opts.cursor The pagination cursor value.
+     * @param {module:model/String} opts.expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
      * @param {Boolean} opts.includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models.
      * @param {String} opts.interviewId If provided, will only return scorecards for this interview.
      * @param {String} opts.interviewerId If provided, will only return scorecards for this interviewer.
@@ -124,6 +77,7 @@ export default class ScorecardsApi {
         'created_after': opts['createdAfter'],
         'created_before': opts['createdBefore'],
         'cursor': opts['cursor'],
+        'expand': opts['expand'],
         'include_remote_data': opts['includeRemoteData'],
         'interview_id': opts['interviewId'],
         'interviewer_id': opts['interviewerId'],
@@ -162,6 +116,7 @@ export default class ScorecardsApi {
      * @param {String} xAccountToken Token identifying the end user.
      * @param {String} id 
      * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
      * @param {Boolean} opts.includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models.
      * @param {module:api/ScorecardsApi~scorecardsRetrieveCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Scorecard}
@@ -182,6 +137,7 @@ export default class ScorecardsApi {
         'id': id
       };
       let queryParams = {
+        'expand': opts['expand'],
         'include_remote_data': opts['includeRemoteData']
       };
       let headerParams = {

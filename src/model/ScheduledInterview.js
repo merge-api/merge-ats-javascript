@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import RemoteData from './RemoteData';
-import Status007Enum from './Status007Enum';
+import ScheduledInterviewStatusEnum from './ScheduledInterviewStatusEnum';
 
 /**
  * The ScheduledInterview model module.
@@ -84,7 +84,7 @@ class ScheduledInterview {
                 obj['remote_updated_at'] = ApiClient.convertToType(data['remote_updated_at'], 'Date');
             }
             if (data.hasOwnProperty('status')) {
-                obj['status'] = ApiClient.convertToType(data['status'], Status007Enum);
+                obj['status'] = ApiClient.convertToType(data['status'], ScheduledInterviewStatusEnum);
             }
             if (data.hasOwnProperty('remote_data')) {
                 obj['remote_data'] = ApiClient.convertToType(data['remote_data'], [RemoteData]);
@@ -162,7 +162,7 @@ ScheduledInterview.prototype['remote_updated_at'] = undefined;
 
 /**
  * The interview's status.
- * @member {module:model/Status007Enum} status
+ * @member {module:model/ScheduledInterviewStatusEnum} status
  */
 ScheduledInterview.prototype['status'] = undefined;
 

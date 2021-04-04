@@ -23,7 +23,7 @@ import RemoteData from './RemoteData';
 class Scorecard {
     /**
      * Constructs a new <code>Scorecard</code>.
-     * # The Scorecard Object ### Description The &#x60;Scorecard&#x60; object is used to represent a Scorecard for an interview  ### Usage Example Fetch from the &#x60;LIST Scorecard&#x60; endpoint and filter by &#x60;application&#x60; to show all scorecard for an applicant.
+     * # The Scorecard Object ### Description The &#x60;Scorecard&#x60; object is used to represent a Scorecard for an interview  ### Usage Example Fetch from the &#x60;LIST Scorecards&#x60; endpoint and filter by &#x60;application&#x60; to show all scorecard for an applicant.
      * @alias module:model/Scorecard
      */
     constructor() { 

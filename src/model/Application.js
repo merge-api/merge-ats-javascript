@@ -61,9 +61,6 @@ class Application {
             if (data.hasOwnProperty('job')) {
                 obj['job'] = ApiClient.convertToType(data['job'], 'String');
             }
-            if (data.hasOwnProperty('is_prospect')) {
-                obj['is_prospect'] = ApiClient.convertToType(data['is_prospect'], 'Boolean');
-            }
             if (data.hasOwnProperty('applied_at')) {
                 obj['applied_at'] = ApiClient.convertToType(data['applied_at'], 'Date');
             }
@@ -114,12 +111,6 @@ Application.prototype['candidate'] = undefined;
  * @member {String} job
  */
 Application.prototype['job'] = undefined;
-
-/**
- * Whether or not the application is a prospect.
- * @member {Boolean} is_prospect
- */
-Application.prototype['is_prospect'] = undefined;
 
 /**
  * When the application was submitted.

@@ -22,7 +22,7 @@ import RemoteData from './RemoteData';
 class JobInterviewStage {
     /**
      * Constructs a new <code>JobInterviewStage</code>.
-     * # The JobInterviewStage Object ### Description The &#x60;JobInterviewStage&#x60; object is used to represent the stage of an interview  ### Usage Example Fetch from the &#x60;LIST Applications&#x60; endpoint and view the current stage of various applications.
+     * # The JobInterviewStage Object ### Description The &#x60;JobInterviewStage&#x60; object is used to represent the stage of an interview  ### Usage Example Fetch from the &#x60;LIST JobInterviewStages&#x60; endpoint and view the job interview stages used by a company.
      * @alias module:model/JobInterviewStage
      */
     constructor() { 
@@ -89,7 +89,7 @@ JobInterviewStage.prototype['remote_id'] = undefined;
 JobInterviewStage.prototype['name'] = undefined;
 
 /**
- * The job that this stage belongs to.
+ * If stages are specific to a job, this is the job that this stage belongs to.
  * @member {String} job
  */
 JobInterviewStage.prototype['job'] = undefined;

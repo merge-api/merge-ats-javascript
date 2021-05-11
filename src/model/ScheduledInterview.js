@@ -12,7 +12,11 @@
  */
 
 import ApiClient from '../ApiClient';
+import convertRelatedObjectToType from '../Utils';
+import Application from './Application';
+import JobInterviewStage from './JobInterviewStage';
 import RemoteData from './RemoteData';
+import RemoteUser from './RemoteUser';
 import ScheduledInterviewStatusEnum from './ScheduledInterviewStatusEnum';
 
 /**
@@ -57,16 +61,16 @@ class ScheduledInterview {
                 obj['remote_id'] = ApiClient.convertToType(data['remote_id'], 'String');
             }
             if (data.hasOwnProperty('application')) {
-                obj['application'] = ApiClient.convertToType(data['application'], 'String');
+                obj['application'] = convertRelatedObjectToType(data['application'], Application);
             }
             if (data.hasOwnProperty('job_interview_stage')) {
-                obj['job_interview_stage'] = ApiClient.convertToType(data['job_interview_stage'], 'String');
+                obj['job_interview_stage'] = convertRelatedObjectToType(data['job_interview_stage'], JobInterviewStage);
             }
             if (data.hasOwnProperty('organizer')) {
-                obj['organizer'] = ApiClient.convertToType(data['organizer'], 'String');
+                obj['organizer'] = convertRelatedObjectToType(data['organizer'], RemoteUser);
             }
             if (data.hasOwnProperty('interviewers')) {
-                obj['interviewers'] = ApiClient.convertToType(data['interviewers'], ['String']);
+                obj['interviewers'] = convertRelatedObjectToType(data['interviewers'], RemoteUser);
             }
             if (data.hasOwnProperty('location')) {
                 obj['location'] = ApiClient.convertToType(data['location'], 'String');

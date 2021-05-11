@@ -11,44 +11,49 @@
  *
  */
 
-import ApiClient from '../ApiClient';
-import RemoteData from './RemoteData';
-
-/**
- * The Application model module.
- * @module model/Application
- * @version 1.0
- */
-class Application {
-    /**
-     * Constructs a new <code>Application</code>.
-     * # The Application Object ### Description The &#x60;Application&#x60; object is used to represent an Application for a job position.  ### Usage Example Fetch from the &#x60;LIST Applications&#x60; endpoint and filter by &#x60;ID&#x60; to show all applications.
-     * @alias module:model/Application
-     */
-    constructor() { 
-        
-        Application.initialize(this);
-    }
-
-    /**
-     * Initializes the fields of this object.
-     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
-     * Only for internal use.
-     */
-    static initialize(obj) { 
-    }
-
-    /**
-     * Constructs a <code>Application</code> from a plain JavaScript object, optionally creating a new instance.
-     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/Application} obj Optional instance to populate.
-     * @return {module:model/Application} The populated <code>Application</code> instance.
-     */
-    static constructFromObject(data, obj) {
+ import ApiClient from '../ApiClient';
+ import convertRelatedObjectToType from '../Utils'
+ import RemoteData from './RemoteData';
+ import Candidate from './Candidate';
+ import Job from './Job';
+ import RemoteUser from './RemoteUser';
+ import JobInterviewStage from './JobInterviewStage';
+ import RejectReason from './RejectReason';
+ 
+ /**
+  * The Application model module.
+  * @module model/Application
+  * @version 1.0
+  */
+ class Application {
+     /**
+      * Constructs a new <code>Application</code>.
+      * # The Application Object ### Description The &#x60;Application&#x60; object is used to represent an Application for a job position.  ### Usage Example Fetch from the &#x60;LIST Applications&#x60; endpoint and filter by &#x60;ID&#x60; to show all applications.
+      * @alias module:model/Application
+      */
+     constructor() { 
+         
+         Application.initialize(this);
+     }
+ 
+     /**
+      * Initializes the fields of this object.
+      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
+      * Only for internal use.
+      */
+     static initialize(obj) { 
+     }
+ 
+     /**
+      * Constructs a <code>Application</code> from a plain JavaScript object, optionally creating a new instance.
+      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+      * @param {Object} data The plain JavaScript object bearing properties of interest.
+      * @param {module:model/Application} obj Optional instance to populate.
+      * @return {module:model/Application} The populated <code>Application</code> instance.
+      */
+     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new Application();
-
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
@@ -56,10 +61,10 @@ class Application {
                 obj['remote_id'] = ApiClient.convertToType(data['remote_id'], 'String');
             }
             if (data.hasOwnProperty('candidate')) {
-                obj['candidate'] = ApiClient.convertToType(data['candidate'], 'String');
+                obj['candidate'] = convertRelatedObjectToType(data['candidate'], Candidate);
             }
             if (data.hasOwnProperty('job')) {
-                obj['job'] = ApiClient.convertToType(data['job'], 'String');
+                obj['job'] = convertRelatedObjectToType(data['job'], Job);
             }
             if (data.hasOwnProperty('applied_at')) {
                 obj['applied_at'] = ApiClient.convertToType(data['applied_at'], 'Date');
@@ -71,92 +76,92 @@ class Application {
                 obj['source'] = ApiClient.convertToType(data['source'], 'String');
             }
             if (data.hasOwnProperty('credited_to')) {
-                obj['credited_to'] = ApiClient.convertToType(data['credited_to'], 'String');
+                obj['credited_to'] = convertRelatedObjectToType(data['credited_to'], RemoteUser)
             }
             if (data.hasOwnProperty('current_stage')) {
-                obj['current_stage'] = ApiClient.convertToType(data['current_stage'], 'String');
+                obj['current_stage'] = convertRelatedObjectToType( data['current_stage'], JobInterviewStage);
             }
             if (data.hasOwnProperty('reject_reason')) {
-                obj['reject_reason'] = ApiClient.convertToType(data['reject_reason'], 'String');
+                obj['reject_reason'] = convertRelatedObjectToType(data['reject_reason'], RejectReason);
             }
             if (data.hasOwnProperty('remote_data')) {
                 obj['remote_data'] = ApiClient.convertToType(data['remote_data'], [RemoteData]);
             }
         }
         return obj;
-    }
-
-
-}
-
-/**
- * @member {String} id
- */
-Application.prototype['id'] = undefined;
-
-/**
- * The third-party API ID of the matching object.
- * @member {String} remote_id
- */
-Application.prototype['remote_id'] = undefined;
-
-/**
- * The candidate applying.
- * @member {String} candidate
- */
-Application.prototype['candidate'] = undefined;
-
-/**
- * The job being applied for.
- * @member {String} job
- */
-Application.prototype['job'] = undefined;
-
-/**
- * When the application was submitted.
- * @member {Date} applied_at
- */
-Application.prototype['applied_at'] = undefined;
-
-/**
- * When the application was rejected.
- * @member {Date} rejected_at
- */
-Application.prototype['rejected_at'] = undefined;
-
-/**
- * The application's source.
- * @member {String} source
- */
-Application.prototype['source'] = undefined;
-
-/**
- * The user credited for this application.
- * @member {String} credited_to
- */
-Application.prototype['credited_to'] = undefined;
-
-/**
- * The application's current stage.
- * @member {String} current_stage
- */
-Application.prototype['current_stage'] = undefined;
-
-/**
- * The application's reason for rejection.
- * @member {String} reject_reason
- */
-Application.prototype['reject_reason'] = undefined;
-
-/**
- * @member {Array.<module:model/RemoteData>} remote_data
- */
-Application.prototype['remote_data'] = undefined;
-
-
-
-
-
-
-export default Application;
-
+     }
+ 
+ 
+ }
+ 
+ /**
+  * @member {String} id
+  */
+ Application.prototype['id'] = undefined;
+ 
+ /**
+  * The third-party API ID of the matching object.
+  * @member {String} remote_id
+  */
+ Application.prototype['remote_id'] = undefined;
+ 
+ /**
+  * The candidate applying.
+  * @member {String} candidate
+  */
+ Application.prototype['candidate'] = undefined;
+ 
+ /**
+  * The job being applied for.
+  * @member {String} job
+  */
+ Application.prototype['job'] = undefined;
+ 
+ /**
+  * When the application was submitted.
+  * @member {Date} applied_at
+  */
+ Application.prototype['applied_at'] = undefined;
+ 
+ /**
+  * When the application was rejected.
+  * @member {Date} rejected_at
+  */
+ Application.prototype['rejected_at'] = undefined;
+ 
+ /**
+  * The application's source.
+  * @member {String} source
+  */
+ Application.prototype['source'] = undefined;
+ 
+ /**
+  * The user credited for this application.
+  * @member {String} credited_to
+  */
+ Application.prototype['credited_to'] = undefined;
+ 
+ /**
+  * The application's current stage.
+  * @member {String} current_stage
+  */
+ Application.prototype['current_stage'] = undefined;
+ 
+ /**
+  * The application's reason for rejection.
+  * @member {String} reject_reason
+  */
+ Application.prototype['reject_reason'] = undefined;
+ 
+ /**
+  * @member {Array.<module:model/RemoteData>} remote_data
+  */
+ Application.prototype['remote_data'] = undefined;
+ 
+ 
+ 
+ 
+ 
+ 
+ export default Application;
+ 

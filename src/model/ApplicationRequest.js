@@ -12,6 +12,13 @@
  */
 
 import ApiClient from '../ApiClient';
+import convertRelatedObjectToType from '../Utils';
+import Candidate from './Candidate';
+import CandidateRequest from './CandidateRequest';
+import Job from './Job';
+import JobInterviewStage from './JobInterviewStage';
+import RejectReason from './RejectReason';
+import RemoteUser from './RemoteUser';
 
 /**
  * The ApplicationRequest model module.
@@ -52,10 +59,10 @@ class ApplicationRequest {
                 obj['remote_id'] = ApiClient.convertToType(data['remote_id'], 'String');
             }
             if (data.hasOwnProperty('candidate')) {
-                obj['candidate'] = ApiClient.convertToType(data['candidate'], 'String');
+                obj['candidate'] = convertRelatedObjectToType(data['candidate'], CandidateRequest);
             }
             if (data.hasOwnProperty('job')) {
-                obj['job'] = ApiClient.convertToType(data['job'], 'String');
+                obj['job'] = convertRelatedObjectToType(data['job'], Job);
             }
             if (data.hasOwnProperty('applied_at')) {
                 obj['applied_at'] = ApiClient.convertToType(data['applied_at'], 'Date');
@@ -67,13 +74,13 @@ class ApplicationRequest {
                 obj['source'] = ApiClient.convertToType(data['source'], 'String');
             }
             if (data.hasOwnProperty('credited_to')) {
-                obj['credited_to'] = ApiClient.convertToType(data['credited_to'], 'String');
+                obj['credited_to'] = convertRelatedObjectToType(data['credited_to'], RemoteUser);
             }
             if (data.hasOwnProperty('current_stage')) {
-                obj['current_stage'] = ApiClient.convertToType(data['current_stage'], 'String');
+                obj['current_stage'] = convertRelatedObjectToType(data['current_stage'], JobInterviewStage);
             }
             if (data.hasOwnProperty('reject_reason')) {
-                obj['reject_reason'] = ApiClient.convertToType(data['reject_reason'], 'String');
+                obj['reject_reason'] = convertRelatedObjectToType(data['reject_reason'], RejectReason);
             }
         }
         return obj;

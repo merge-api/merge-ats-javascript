@@ -21,6 +21,8 @@ import ActivityTypeEnum from './model/ActivityTypeEnum';
 import Application from './model/Application';
 import ApplicationRequest from './model/ApplicationRequest';
 import Attachment from './model/Attachment';
+import AttachmentRequest from './model/AttachmentRequest';
+import AttachmentTypeEnum from './model/AttachmentTypeEnum';
 import AvailableActions from './model/AvailableActions';
 import Candidate from './model/Candidate';
 import CandidateRequest from './model/CandidateRequest';
@@ -103,6 +105,7 @@ import ScorecardsApi from './api/ScorecardsApi';
 import SyncStatusApi from './api/SyncStatusApi';
 import TagsApi from './api/TagsApi';
 import UsersApi from './api/UsersApi';
+import convertRelatedObjectToType from './Utils';
 
 
 /**
@@ -190,6 +193,18 @@ export {
      * @property {module:model/Attachment}
      */
     Attachment,
+
+    /**
+     * The AttachmentRequest model constructor.
+     * @property {module:model/AttachmentRequest}
+     */
+    AttachmentRequest,
+
+    /**
+     * The AttachmentTypeEnum model constructor.
+     * @property {module:model/AttachmentTypeEnum}
+     */
+    AttachmentTypeEnum,
 
     /**
      * The AvailableActions model constructor.
@@ -681,5 +696,5 @@ export {
     * The UsersApi service constructor.
     * @property {module:api/UsersApi}
     */
-    UsersApi
+    UsersApi,
 };

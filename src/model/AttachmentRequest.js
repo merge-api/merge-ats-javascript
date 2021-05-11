@@ -14,23 +14,22 @@
 import ApiClient from '../ApiClient';
 import convertRelatedObjectToType from '../Utils';
 import AttachmentTypeEnum from './AttachmentTypeEnum';
-import Candidate from './Candidate';
-import RemoteData from './RemoteData';
+import CandidateRequest from './CandidateRequest';
 
 /**
- * The Attachment model module.
- * @module model/Attachment
+ * The AttachmentRequest model module.
+ * @module model/AttachmentRequest
  * @version 1.0
  */
-class Attachment {
+class AttachmentRequest {
     /**
-     * Constructs a new <code>Attachment</code>.
+     * Constructs a new <code>AttachmentRequest</code>.
      * # The Attachment Object ### Description The &#x60;Attachment&#x60; object is used to represent a attachment for a candidate.  ### Usage Example Fetch from the &#x60;LIST Attachments&#x60; endpoint and view attachments accessible by a company.
-     * @alias module:model/Attachment
+     * @alias module:model/AttachmentRequest
      */
     constructor() { 
         
-        Attachment.initialize(this);
+        AttachmentRequest.initialize(this);
     }
 
     /**
@@ -42,19 +41,16 @@ class Attachment {
     }
 
     /**
-     * Constructs a <code>Attachment</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>AttachmentRequest</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/Attachment} obj Optional instance to populate.
-     * @return {module:model/Attachment} The populated <code>Attachment</code> instance.
+     * @param {module:model/AttachmentRequest} obj Optional instance to populate.
+     * @return {module:model/AttachmentRequest} The populated <code>AttachmentRequest</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new Attachment();
+            obj = obj || new AttachmentRequest();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
-            }
             if (data.hasOwnProperty('remote_id')) {
                 obj['remote_id'] = ApiClient.convertToType(data['remote_id'], 'String');
             }
@@ -65,13 +61,10 @@ class Attachment {
                 obj['file_url'] = ApiClient.convertToType(data['file_url'], 'String');
             }
             if (data.hasOwnProperty('candidate')) {
-                obj['candidate'] = convertRelatedObjectToType(data['candidate'], Candidate);
+                obj['candidate'] = convertRelatedObjectToType(data['candidate'], CandidateRequest);
             }
             if (data.hasOwnProperty('attachment_type')) {
                 obj['attachment_type'] = ApiClient.convertToType(data['attachment_type'], AttachmentTypeEnum);
-            }
-            if (data.hasOwnProperty('remote_data')) {
-                obj['remote_data'] = ApiClient.convertToType(data['remote_data'], [RemoteData]);
             }
         }
         return obj;
@@ -81,48 +74,38 @@ class Attachment {
 }
 
 /**
- * @member {String} id
- */
-Attachment.prototype['id'] = undefined;
-
-/**
  * The third-party API ID of the matching object.
  * @member {String} remote_id
  */
-Attachment.prototype['remote_id'] = undefined;
+AttachmentRequest.prototype['remote_id'] = undefined;
 
 /**
  * The attachment's name.
  * @member {String} file_name
  */
-Attachment.prototype['file_name'] = undefined;
+AttachmentRequest.prototype['file_name'] = undefined;
 
 /**
  * The attachment's url.
  * @member {String} file_url
  */
-Attachment.prototype['file_url'] = undefined;
+AttachmentRequest.prototype['file_url'] = undefined;
 
 /**
  * @member {String} candidate
  */
-Attachment.prototype['candidate'] = undefined;
+AttachmentRequest.prototype['candidate'] = undefined;
 
 /**
  * The attachment's type.
  * @member {module:model/AttachmentTypeEnum} attachment_type
  */
-Attachment.prototype['attachment_type'] = undefined;
-
-/**
- * @member {Array.<module:model/RemoteData>} remote_data
- */
-Attachment.prototype['remote_data'] = undefined;
+AttachmentRequest.prototype['attachment_type'] = undefined;
 
 
 
 
 
 
-export default Attachment;
+export default AttachmentRequest;
 

@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import AccountIntegration from './AccountIntegration';
 
 /**
  * The AccountToken model module.
@@ -23,10 +24,11 @@ class AccountToken {
      * Constructs a new <code>AccountToken</code>.
      * @alias module:model/AccountToken
      * @param accountToken {String} 
+     * @param integration {module:model/AccountIntegration} 
      */
-    constructor(accountToken) { 
+    constructor(accountToken, integration) { 
         
-        AccountToken.initialize(this, accountToken);
+        AccountToken.initialize(this, accountToken, integration);
     }
 
     /**
@@ -34,8 +36,9 @@ class AccountToken {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, accountToken) { 
+    static initialize(obj, accountToken, integration) { 
         obj['account_token'] = accountToken;
+        obj['integration'] = integration;
     }
 
     /**
@@ -52,6 +55,9 @@ class AccountToken {
             if (data.hasOwnProperty('account_token')) {
                 obj['account_token'] = ApiClient.convertToType(data['account_token'], 'String');
             }
+            if (data.hasOwnProperty('integration')) {
+                obj['integration'] = AccountIntegration.constructFromObject(data['integration']);
+            }
         }
         return obj;
     }
@@ -63,6 +69,11 @@ class AccountToken {
  * @member {String} account_token
  */
 AccountToken.prototype['account_token'] = undefined;
+
+/**
+ * @member {module:model/AccountIntegration} integration
+ */
+AccountToken.prototype['integration'] = undefined;
 
 
 

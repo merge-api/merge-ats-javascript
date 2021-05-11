@@ -21,7 +21,3 @@ Name | Type | Description | Notes
 * `ats` (value: `"ats"`)
 
 * `accounting` (value: `"accounting"`)
-
-
-
-

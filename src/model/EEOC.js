@@ -12,6 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
+import convertRelatedObjectToType from '../Utils';
+import Candidate from './Candidate';
 import DisabilityStatusEnum from './DisabilityStatusEnum';
 import GenderEnum from './GenderEnum';
 import RaceEnum from './RaceEnum';
@@ -60,7 +62,7 @@ class EEOC {
                 obj['remote_id'] = ApiClient.convertToType(data['remote_id'], 'String');
             }
             if (data.hasOwnProperty('candidate')) {
-                obj['candidate'] = ApiClient.convertToType(data['candidate'], 'String');
+                obj['candidate'] = convertRelatedObjectToType(data['candidate'], Candidate);
             }
             if (data.hasOwnProperty('submitted_at')) {
                 obj['submitted_at'] = ApiClient.convertToType(data['submitted_at'], 'Date');

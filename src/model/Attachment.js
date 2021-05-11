@@ -12,7 +12,9 @@
  */
 
 import ApiClient from '../ApiClient';
+import convertRelatedObjectToType from '../Utils';
 import AttachmentTypeEnum from './AttachmentTypeEnum';
+import Candidate from './Candidate';
 import RemoteData from './RemoteData';
 
 /**
@@ -63,7 +65,7 @@ class Attachment {
                 obj['file_url'] = ApiClient.convertToType(data['file_url'], 'String');
             }
             if (data.hasOwnProperty('candidate')) {
-                obj['candidate'] = ApiClient.convertToType(data['candidate'], 'String');
+                obj['candidate'] = convertRelatedObjectToType(data['candidate'], Candidate);
             }
             if (data.hasOwnProperty('attachment_type')) {
                 obj['attachment_type'] = ApiClient.convertToType(data['attachment_type'], AttachmentTypeEnum);

@@ -12,8 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
+import convertRelatedObjectToType from '../Utils';
+import Application from './Application';
 import OverallRecommendationEnum from './OverallRecommendationEnum';
 import RemoteData from './RemoteData';
+import RemoteUser from './RemoteUser';
+import ScheduledInterview from './ScheduledInterview';
 
 /**
  * The Scorecard model module.
@@ -57,13 +61,13 @@ class Scorecard {
                 obj['remote_id'] = ApiClient.convertToType(data['remote_id'], 'String');
             }
             if (data.hasOwnProperty('application')) {
-                obj['application'] = ApiClient.convertToType(data['application'], 'String');
+                obj['application'] = convertRelatedObjectToType(data['application'], Application);
             }
             if (data.hasOwnProperty('interview')) {
-                obj['interview'] = ApiClient.convertToType(data['interview'], 'String');
+                obj['interview'] = convertRelatedObjectToType(data['interview'], ScheduledInterview);
             }
             if (data.hasOwnProperty('interviewer')) {
-                obj['interviewer'] = ApiClient.convertToType(data['interviewer'], 'String');
+                obj['interviewer'] = convertRelatedObjectToType(data['interviewer'], RemoteUser);
             }
             if (data.hasOwnProperty('remote_created_at')) {
                 obj['remote_created_at'] = ApiClient.convertToType(data['remote_created_at'], 'Date');

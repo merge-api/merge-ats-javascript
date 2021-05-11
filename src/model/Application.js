@@ -52,47 +52,43 @@
       * @return {module:model/Application} The populated <code>Application</code> instance.
       */
      static constructFromObject(data, obj) {
-         try{
-            if (data) {
-                obj = obj || new Application();
-                if (data.hasOwnProperty('id')) {
-                    obj['id'] = ApiClient.convertToType(data['id'], 'String');
-                }
-                if (data.hasOwnProperty('remote_id')) {
-                    obj['remote_id'] = ApiClient.convertToType(data['remote_id'], 'String');
-                }
-                if (data.hasOwnProperty('candidate')) {
-                    obj['candidate'] = convertRelatedObjectToType(data['candidate'], Candidate);
-                }
-                if (data.hasOwnProperty('job')) {
-                    obj['job'] = convertRelatedObjectToType(data['job'], Job);
-                }
-                if (data.hasOwnProperty('applied_at')) {
-                    obj['applied_at'] = ApiClient.convertToType(data['applied_at'], 'Date');
-                }
-                if (data.hasOwnProperty('rejected_at')) {
-                    obj['rejected_at'] = ApiClient.convertToType(data['rejected_at'], 'Date');
-                }
-                if (data.hasOwnProperty('source')) {
-                    obj['source'] = ApiClient.convertToType(data['source'], 'String');
-                }
-                if (data.hasOwnProperty('credited_to')) {
-                    obj['credited_to'] = convertRelatedObjectToType(data['credited_to'], RemoteUser)
-                }
-                if (data.hasOwnProperty('current_stage')) {
-                    obj['current_stage'] = convertRelatedObjectToType( data['current_stage'], JobInterviewStage);
-                }
-                if (data.hasOwnProperty('reject_reason')) {
-                    obj['reject_reason'] = convertRelatedObjectToType(data['reject_reason'], RejectReason);
-                }
-                if (data.hasOwnProperty('remote_data')) {
-                    obj['remote_data'] = ApiClient.convertToType(data['remote_data'], [RemoteData]);
-                }
+        if (data) {
+            obj = obj || new Application();
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            return obj;
-        } catch (err) {
-            console.log(err);
+            if (data.hasOwnProperty('remote_id')) {
+                obj['remote_id'] = ApiClient.convertToType(data['remote_id'], 'String');
+            }
+            if (data.hasOwnProperty('candidate')) {
+                obj['candidate'] = convertRelatedObjectToType(data['candidate'], Candidate);
+            }
+            if (data.hasOwnProperty('job')) {
+                obj['job'] = convertRelatedObjectToType(data['job'], Job);
+            }
+            if (data.hasOwnProperty('applied_at')) {
+                obj['applied_at'] = ApiClient.convertToType(data['applied_at'], 'Date');
+            }
+            if (data.hasOwnProperty('rejected_at')) {
+                obj['rejected_at'] = ApiClient.convertToType(data['rejected_at'], 'Date');
+            }
+            if (data.hasOwnProperty('source')) {
+                obj['source'] = ApiClient.convertToType(data['source'], 'String');
+            }
+            if (data.hasOwnProperty('credited_to')) {
+                obj['credited_to'] = convertRelatedObjectToType(data['credited_to'], RemoteUser)
+            }
+            if (data.hasOwnProperty('current_stage')) {
+                obj['current_stage'] = convertRelatedObjectToType( data['current_stage'], JobInterviewStage);
+            }
+            if (data.hasOwnProperty('reject_reason')) {
+                obj['reject_reason'] = convertRelatedObjectToType(data['reject_reason'], RejectReason);
+            }
+            if (data.hasOwnProperty('remote_data')) {
+                obj['remote_data'] = ApiClient.convertToType(data['remote_data'], [RemoteData]);
+            }
         }
+        return obj;
      }
  
  

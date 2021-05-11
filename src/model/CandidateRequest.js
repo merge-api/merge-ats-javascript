@@ -12,6 +12,9 @@
  */
 
 import ApiClient from '../ApiClient';
+import convertRelatedObjectToType from '../Utils';
+import ApplicationRequest from './ApplicationRequest';
+import AttachmentRequest from './AttachmentRequest';
 import EmailAddressRequest from './EmailAddressRequest';
 import PhoneNumberRequest from './PhoneNumberRequest';
 import UrlRequest from './UrlRequest';
@@ -97,10 +100,10 @@ class CandidateRequest {
                 obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
             }
             if (data.hasOwnProperty('applications')) {
-                obj['applications'] = ApiClient.convertToType(data['applications'], ['String']);
+                obj['applications'] = convertRelatedObjectToType(data['applications'], ApplicationRequest);
             }
             if (data.hasOwnProperty('attachments')) {
-                obj['attachments'] = ApiClient.convertToType(data['attachments'], ['String']);
+                obj['attachments'] = convertRelatedObjectToType(data['attachments'], AttachmentRequest);
             }
         }
         return obj;

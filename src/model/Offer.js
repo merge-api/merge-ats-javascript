@@ -12,8 +12,11 @@
  */
 
 import ApiClient from '../ApiClient';
+import convertRelatedObjectToType from '../Utils';
+import Application from './Application';
 import OfferStatusEnum from './OfferStatusEnum';
 import RemoteData from './RemoteData';
+import RemoteUser from './RemoteUser';
 
 /**
  * The Offer model module.
@@ -57,10 +60,10 @@ class Offer {
                 obj['remote_id'] = ApiClient.convertToType(data['remote_id'], 'String');
             }
             if (data.hasOwnProperty('application')) {
-                obj['application'] = ApiClient.convertToType(data['application'], 'String');
+                obj['application'] = convertRelatedObjectToType(data['application'], Application);
             }
             if (data.hasOwnProperty('creator')) {
-                obj['creator'] = ApiClient.convertToType(data['creator'], 'String');
+                obj['creator'] = convertRelatedObjectToType(data['creator'], RemoteUser);
             }
             if (data.hasOwnProperty('remote_created_at')) {
                 obj['remote_created_at'] = ApiClient.convertToType(data['remote_created_at'], 'Date');

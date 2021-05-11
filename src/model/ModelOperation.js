@@ -26,10 +26,11 @@ class ModelOperation {
      * @param modelName {String} 
      * @param availableOperations {Array.<String>} 
      * @param requiredPostParameters {Array.<String>} 
+     * @param supportedFields {Array.<String>} 
      */
-    constructor(modelName, availableOperations, requiredPostParameters) { 
+    constructor(modelName, availableOperations, requiredPostParameters, supportedFields) { 
         
-        ModelOperation.initialize(this, modelName, availableOperations, requiredPostParameters);
+        ModelOperation.initialize(this, modelName, availableOperations, requiredPostParameters, supportedFields);
     }
 
     /**
@@ -37,10 +38,11 @@ class ModelOperation {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, modelName, availableOperations, requiredPostParameters) { 
+    static initialize(obj, modelName, availableOperations, requiredPostParameters, supportedFields) { 
         obj['model_name'] = modelName;
         obj['available_operations'] = availableOperations;
         obj['required_post_parameters'] = requiredPostParameters;
+        obj['supported_fields'] = supportedFields;
     }
 
     /**
@@ -63,6 +65,9 @@ class ModelOperation {
             if (data.hasOwnProperty('required_post_parameters')) {
                 obj['required_post_parameters'] = ApiClient.convertToType(data['required_post_parameters'], ['String']);
             }
+            if (data.hasOwnProperty('supported_fields')) {
+                obj['supported_fields'] = ApiClient.convertToType(data['supported_fields'], ['String']);
+            }
         }
         return obj;
     }
@@ -84,6 +89,11 @@ ModelOperation.prototype['available_operations'] = undefined;
  * @member {Array.<String>} required_post_parameters
  */
 ModelOperation.prototype['required_post_parameters'] = undefined;
+
+/**
+ * @member {Array.<String>} supported_fields
+ */
+ModelOperation.prototype['supported_fields'] = undefined;
 
 
 

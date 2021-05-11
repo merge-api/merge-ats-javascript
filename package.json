@@ -1,12 +1,12 @@
 {
-  "name": "@mergeapi/merge_ats_api",
-  "version": "1.0.3",
+  "name": "merge_ats_api",
+  "version": "1.0.5",
   "description": "The_unified_API_for_building_rich_integrations_with_multiple_Applicant_Tracking_System_platforms_",
   "license": "Unlicense",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src -d dist",
-    "prepack": "npm run build",
+    "prepare": "npm run build",
     "test": "mocha --require @babel/register --recursive"
   },
   "browser": {

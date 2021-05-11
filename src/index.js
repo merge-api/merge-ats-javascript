@@ -21,6 +21,8 @@ import ActivityTypeEnum from './model/ActivityTypeEnum';
 import Application from './model/Application';
 import ApplicationRequest from './model/ApplicationRequest';
 import Attachment from './model/Attachment';
+import AttachmentRequest from './model/AttachmentRequest';
+import AttachmentTypeEnum from './model/AttachmentTypeEnum';
 import AvailableActions from './model/AvailableActions';
 import Candidate from './model/Candidate';
 import CandidateRequest from './model/CandidateRequest';
@@ -190,6 +192,18 @@ export {
      * @property {module:model/Attachment}
      */
     Attachment,
+
+    /**
+     * The AttachmentRequest model constructor.
+     * @property {module:model/AttachmentRequest}
+     */
+    AttachmentRequest,
+
+    /**
+     * The AttachmentTypeEnum model constructor.
+     * @property {module:model/AttachmentTypeEnum}
+     */
+    AttachmentTypeEnum,
 
     /**
      * The AvailableActions model constructor.

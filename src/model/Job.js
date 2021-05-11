@@ -12,8 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
+import convertRelatedObjectToType from '../Utils';
 import JobStatusEnum from './JobStatusEnum';
 import RemoteData from './RemoteData';
+import Department from './Department';
+import Office from './Office';
+import RemoteUser from './RemoteUser';
 
 /**
  * The Job model module.
@@ -75,13 +79,13 @@ class Job {
                 obj['confidential'] = ApiClient.convertToType(data['confidential'], 'Boolean');
             }
             if (data.hasOwnProperty('departments')) {
-                obj['departments'] = ApiClient.convertToType(data['departments'], ['String']);
+                obj['departments'] = convertRelatedObjectToType(data['departments'], Department, true);
             }
             if (data.hasOwnProperty('offices')) {
-                obj['offices'] = ApiClient.convertToType(data['offices'], ['String']);
+                obj['offices'] = convertRelatedObjectToType(data['offices'], Office, true);
             }
             if (data.hasOwnProperty('hiring_managers')) {
-                obj['hiring_managers'] = ApiClient.convertToType(data['hiring_managers'], ['String']);
+                obj['hiring_managers'] = convertRelatedObjectToType(data['hiring_managers'], RemoteUser, true);
             }
             if (data.hasOwnProperty('remote_data')) {
                 obj['remote_data'] = ApiClient.convertToType(data['remote_data'], [RemoteData]);

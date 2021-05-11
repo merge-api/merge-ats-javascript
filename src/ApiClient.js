@@ -49,7 +49,9 @@ class ApiClient {
          * @type {Array.<String>}
          * @default {}
          */
-        this.defaultHeaders = {};
+        this.defaultHeaders = {
+            'User-Agent': 'OpenAPI-Generator/1.0/Javascript'
+        };
 
         /**
          * The default HTTP timeout for all API calls.
@@ -506,7 +508,7 @@ class ApiClient {
     */
     static parseDate(str) {
         if (isNaN(str)) {
-            return new Date(str);
+            return new Date(str.replace(/(\d)(T)(\d)/i, '$1 $3'));
         }
         return new Date(+str);
     }

@@ -12,8 +12,11 @@
  */
 
 import ApiClient from '../ApiClient';
+import convertRelatedObjectToType from '../Utils';
+import Application from './Application';
 import OfferStatusEnum from './OfferStatusEnum';
 import RemoteData from './RemoteData';
+import RemoteUser from './RemoteUser';
 
 /**
  * The Offer model module.
@@ -57,10 +60,10 @@ class Offer {
                 obj['remote_id'] = ApiClient.convertToType(data['remote_id'], 'String');
             }
             if (data.hasOwnProperty('application')) {
-                obj['application'] = ApiClient.convertToType(data['application'], 'String');
+                obj['application'] = convertRelatedObjectToType(data['application'], Application);
             }
             if (data.hasOwnProperty('creator')) {
-                obj['creator'] = ApiClient.convertToType(data['creator'], 'String');
+                obj['creator'] = convertRelatedObjectToType(data['creator'], RemoteUser);
             }
             if (data.hasOwnProperty('remote_created_at')) {
                 obj['remote_created_at'] = ApiClient.convertToType(data['remote_created_at'], 'Date');
@@ -99,7 +102,7 @@ Offer.prototype['id'] = undefined;
 Offer.prototype['remote_id'] = undefined;
 
 /**
- * The application being for the offer.
+ * The application who is receiving the offer.
  * @member {String} application
  */
 Offer.prototype['application'] = undefined;
@@ -111,7 +114,7 @@ Offer.prototype['application'] = undefined;
 Offer.prototype['creator'] = undefined;
 
 /**
- * When the third party's scorecard was created.
+ * When the third party's offer was created.
  * @member {Date} remote_created_at
  */
 Offer.prototype['remote_created_at'] = undefined;
@@ -129,7 +132,7 @@ Offer.prototype['closed_at'] = undefined;
 Offer.prototype['sent_at'] = undefined;
 
 /**
- * The offered start date.
+ * The employment start date on the offer.
  * @member {Date} start_date
  */
 Offer.prototype['start_date'] = undefined;

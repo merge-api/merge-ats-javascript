@@ -120,6 +120,7 @@ export default class ApplicationsApi {
      * data is of type: {@link module:model/PaginatedApplicationList}
      */
     applicationsList(xAccountToken, opts, callback) {
+      console.log("Calling the API");
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'xAccountToken' is set

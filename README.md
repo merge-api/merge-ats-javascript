@@ -15,10 +15,12 @@ For more information, please visit [https://www.merge.dev/](https://www.merge.de
 
 #### npm
 
-Install the library via:
+To publish the library as a [npm](https://www.npmjs.com/), please follow the procedure in ["Publishing npm packages"](https://docs.npmjs.com/getting-started/publishing-npm-packages).
+
+Then install it via:
 
 ```shell
-npm install @mergeapi/merge_ats_api
+npm install merge_ats_api --save
 ```
 
 Finally, you need to build the module:
@@ -27,6 +29,40 @@ Finally, you need to build the module:
 npm run build
 ```
 
+##### Local development
+
+To use the library locally without publishing to a remote npm registry, first install the dependencies by changing into the directory containing `package.json` (and this README). Let's call this `JAVASCRIPT_CLIENT_DIR`. Then run:
+
+```shell
+npm install
+```
+
+Next, [link](https://docs.npmjs.com/cli/link) it globally in npm with the following, also from `JAVASCRIPT_CLIENT_DIR`:
+
+```shell
+npm link
+```
+
+To use the link you just defined in your project, switch to the directory you want to use your merge_ats_api from, and run:
+
+```shell
+npm link /path/to/<JAVASCRIPT_CLIENT_DIR>
+```
+
+Finally, you need to build the module:
+
+```shell
+npm run build
+```
+
+#### git
+
+If the library is hosted at a git repository, e.g.https://github.com/GIT_USER_ID/GIT_REPO_ID
+then install it via:
+
+```shell
+    npm install GIT_USER_ID/GIT_REPO_ID --save
+```
 
 ### For browser
 
@@ -67,7 +103,10 @@ var MergeAtsApi = require('merge_ats_api');
 
 var defaultClient = MergeAtsApi.ApiClient.instance;
 // Configure API key authorization: tokenAuth
-defaultClient.authentications['tokenAuth'] = {type: "bearer", accessToken: "YOUR_API_KEY"}
+var tokenAuth = defaultClient.authentications['tokenAuth'];
+tokenAuth.apiKey = "YOUR API KEY"
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//tokenAuth.apiKeyPrefix['Authorization'] = "Token"
 
 var api = new MergeAtsApi.AccountTokenApi()
 var publicToken = "publicToken_example"; // {String} 
@@ -95,6 +134,7 @@ Class | Method | HTTP request | Description
 *MergeAtsApi.ApplicationsApi* | [**applicationsList**](docs/ApplicationsApi.md#applicationsList) | **GET** /applications | 
 *MergeAtsApi.ApplicationsApi* | [**applicationsPartialUpdate**](docs/ApplicationsApi.md#applicationsPartialUpdate) | **PATCH** /applications/{id} | 
 *MergeAtsApi.ApplicationsApi* | [**applicationsRetrieve**](docs/ApplicationsApi.md#applicationsRetrieve) | **GET** /applications/{id} | 
+*MergeAtsApi.AttachmentsApi* | [**attachmentsCreate**](docs/AttachmentsApi.md#attachmentsCreate) | **POST** /attachments | 
 *MergeAtsApi.AttachmentsApi* | [**attachmentsList**](docs/AttachmentsApi.md#attachmentsList) | **GET** /attachments | 
 *MergeAtsApi.AttachmentsApi* | [**attachmentsRetrieve**](docs/AttachmentsApi.md#attachmentsRetrieve) | **GET** /attachments/{id} | 
 *MergeAtsApi.AvailableActionsApi* | [**availableActionsRetrieve**](docs/AvailableActionsApi.md#availableActionsRetrieve) | **GET** /available-actions | 
@@ -123,6 +163,7 @@ Class | Method | HTTP request | Description
 *MergeAtsApi.RejectReasonsApi* | [**rejectReasonsRetrieve**](docs/RejectReasonsApi.md#rejectReasonsRetrieve) | **GET** /reject-reasons/{id} | 
 *MergeAtsApi.ScorecardsApi* | [**scorecardsList**](docs/ScorecardsApi.md#scorecardsList) | **GET** /scorecards | 
 *MergeAtsApi.ScorecardsApi* | [**scorecardsRetrieve**](docs/ScorecardsApi.md#scorecardsRetrieve) | **GET** /scorecards/{id} | 
+*MergeAtsApi.SyncStatusApi* | [**syncStatusResyncCreate**](docs/SyncStatusApi.md#syncStatusResyncCreate) | **POST** /sync-status/resync | 
 *MergeAtsApi.SyncStatusApi* | [**syncStatusRetrieve**](docs/SyncStatusApi.md#syncStatusRetrieve) | **GET** /sync-status | 
 *MergeAtsApi.TagsApi* | [**tagsList**](docs/TagsApi.md#tagsList) | **GET** /tags | 
 *MergeAtsApi.UsersApi* | [**usersList**](docs/UsersApi.md#usersList) | **GET** /users | 
@@ -139,6 +180,8 @@ Class | Method | HTTP request | Description
  - [MergeAtsApi.Application](docs/Application.md)
  - [MergeAtsApi.ApplicationRequest](docs/ApplicationRequest.md)
  - [MergeAtsApi.Attachment](docs/Attachment.md)
+ - [MergeAtsApi.AttachmentRequest](docs/AttachmentRequest.md)
+ - [MergeAtsApi.AttachmentTypeEnum](docs/AttachmentTypeEnum.md)
  - [MergeAtsApi.AvailableActions](docs/AvailableActions.md)
  - [MergeAtsApi.Candidate](docs/Candidate.md)
  - [MergeAtsApi.CandidateRequest](docs/CandidateRequest.md)

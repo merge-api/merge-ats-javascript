@@ -128,13 +128,13 @@ Candidate.prototype['id'] = undefined;
 Candidate.prototype['remote_id'] = undefined;
 
 /**
- * The user's first name.
+ * The candidate's first name.
  * @member {String} first_name
  */
 Candidate.prototype['first_name'] = undefined;
 
 /**
- * The user's last name.
+ * The candidate's last name.
  * @member {String} last_name
  */
 Candidate.prototype['last_name'] = undefined;

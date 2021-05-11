@@ -96,6 +96,12 @@ class CandidateRequest {
             if (data.hasOwnProperty('tags')) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
             }
+            if (data.hasOwnProperty('applications')) {
+                obj['applications'] = ApiClient.convertToType(data['applications'], ['String']);
+            }
+            if (data.hasOwnProperty('attachments')) {
+                obj['attachments'] = ApiClient.convertToType(data['attachments'], ['String']);
+            }
         }
         return obj;
     }
@@ -110,13 +116,13 @@ class CandidateRequest {
 CandidateRequest.prototype['remote_id'] = undefined;
 
 /**
- * The user's first name.
+ * The candidate's first name.
  * @member {String} first_name
  */
 CandidateRequest.prototype['first_name'] = undefined;
 
 /**
- * The user's last name.
+ * The candidate's last name.
  * @member {String} last_name
  */
 CandidateRequest.prototype['last_name'] = undefined;
@@ -188,6 +194,16 @@ CandidateRequest.prototype['urls'] = undefined;
  * @member {Array.<String>} tags
  */
 CandidateRequest.prototype['tags'] = undefined;
+
+/**
+ * @member {Array.<String>} applications
+ */
+CandidateRequest.prototype['applications'] = undefined;
+
+/**
+ * @member {Array.<String>} attachments
+ */
+CandidateRequest.prototype['attachments'] = undefined;
 
 
 

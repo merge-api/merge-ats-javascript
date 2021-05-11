@@ -99,7 +99,7 @@ Offer.prototype['id'] = undefined;
 Offer.prototype['remote_id'] = undefined;
 
 /**
- * The application being for the offer.
+ * The application who is receiving the offer.
  * @member {String} application
  */
 Offer.prototype['application'] = undefined;
@@ -111,7 +111,7 @@ Offer.prototype['application'] = undefined;
 Offer.prototype['creator'] = undefined;
 
 /**
- * When the third party's scorecard was created.
+ * When the third party's offer was created.
  * @member {Date} remote_created_at
  */
 Offer.prototype['remote_created_at'] = undefined;
@@ -129,7 +129,7 @@ Offer.prototype['closed_at'] = undefined;
 Offer.prototype['sent_at'] = undefined;
 
 /**
- * The offered start date.
+ * The employment start date on the offer.
  * @member {Date} start_date
  */
 Offer.prototype['start_date'] = undefined;

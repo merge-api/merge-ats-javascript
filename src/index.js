@@ -105,6 +105,7 @@ import ScorecardsApi from './api/ScorecardsApi';
 import SyncStatusApi from './api/SyncStatusApi';
 import TagsApi from './api/TagsApi';
 import UsersApi from './api/UsersApi';
+import convertRelatedObjectToType from './Utils';
 
 
 /**
@@ -695,5 +696,5 @@ export {
     * The UsersApi service constructor.
     * @property {module:api/UsersApi}
     */
-    UsersApi
+    UsersApi,
 };

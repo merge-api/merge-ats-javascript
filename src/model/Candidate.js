@@ -12,10 +12,14 @@
  */
 
 import ApiClient from '../ApiClient';
+import convertRelatedObjectToType from '../Utils';
 import EmailAddress from './EmailAddress';
 import PhoneNumber from './PhoneNumber';
 import RemoteData from './RemoteData';
 import Url from './Url';
+import Tag from './Tag';
+import Application from './Application';
+import Attachment from './Attachment';
 
 /**
  * The Candidate model module.
@@ -89,22 +93,22 @@ class Candidate {
                 obj['locations'] = ApiClient.convertToType(data['locations'], ['String']);
             }
             if (data.hasOwnProperty('phone_numbers')) {
-                obj['phone_numbers'] = ApiClient.convertToType(data['phone_numbers'], [PhoneNumber]);
+                obj['phone_numbers'] = convertRelatedObjectToType(data['phone_numbers'], PhoneNumber, true);
             }
             if (data.hasOwnProperty('email_addresses')) {
-                obj['email_addresses'] = ApiClient.convertToType(data['email_addresses'], [EmailAddress]);
+                obj['email_addresses'] = convertRelatedObjectToType(data['email_addresses'], EmailAddress, true);
             }
             if (data.hasOwnProperty('urls')) {
-                obj['urls'] = ApiClient.convertToType(data['urls'], [Url]);
+                obj['urls'] = convertRelatedObjectToType(data['urls'], Url, true);
             }
             if (data.hasOwnProperty('tags')) {
-                obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
+                obj['tags'] = convertRelatedObjectToType(data['tags'], Tag, true);
             }
             if (data.hasOwnProperty('applications')) {
-                obj['applications'] = ApiClient.convertToType(data['applications'], ['String']);
+                obj['applications'] = convertRelatedObjectToType(data['applications'], Application, true);
             }
             if (data.hasOwnProperty('attachments')) {
-                obj['attachments'] = ApiClient.convertToType(data['attachments'], ['String']);
+                obj['attachments'] = convertRelatedObjectToType(data['attachments'], Attachment, true);
             }
             if (data.hasOwnProperty('remote_data')) {
                 obj['remote_data'] = ApiClient.convertToType(data['remote_data'], [RemoteData]);
@@ -128,13 +132,13 @@ Candidate.prototype['id'] = undefined;
 Candidate.prototype['remote_id'] = undefined;
 
 /**
- * The user's first name.
+ * The candidate's first name.
  * @member {String} first_name
  */
 Candidate.prototype['first_name'] = undefined;
 
 /**
- * The user's last name.
+ * The candidate's last name.
  * @member {String} last_name
  */
 Candidate.prototype['last_name'] = undefined;

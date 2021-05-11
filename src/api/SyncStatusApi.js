@@ -35,6 +35,48 @@ export default class SyncStatusApi {
 
 
     /**
+     * Callback function to receive the result of the syncStatusResyncCreate operation.
+     * @callback module:api/SyncStatusApi~syncStatusResyncCreateCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/SyncStatus} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Force resync of all models.
+     * @param {String} xAccountToken Token identifying the end user.
+     * @param {module:api/SyncStatusApi~syncStatusResyncCreateCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/SyncStatus}
+     */
+    syncStatusResyncCreate(xAccountToken, callback) {
+      let postBody = null;
+      // verify the required parameter 'xAccountToken' is set
+      if (xAccountToken === undefined || xAccountToken === null) {
+        throw new Error("Missing the required parameter 'xAccountToken' when calling syncStatusResyncCreate");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+        'X-Account-Token': xAccountToken
+      };
+      let formParams = {
+      };
+
+      let authNames = ['tokenAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = SyncStatus;
+      return this.apiClient.callApi(
+        '/sync-status/resync', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the syncStatusRetrieve operation.
      * @callback module:api/SyncStatusApi~syncStatusRetrieveCallback
      * @param {String} error Error message, if any.

@@ -12,6 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
+import convertRelatedObjectToType from '../Utils';
+import Job from './Job';
 import RemoteData from './RemoteData';
 
 /**
@@ -59,7 +61,7 @@ class JobInterviewStage {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
             if (data.hasOwnProperty('job')) {
-                obj['job'] = ApiClient.convertToType(data['job'], 'String');
+                obj['job'] = ApiClient.convertToType(data['job'], Job);
             }
             if (data.hasOwnProperty('remote_data')) {
                 obj['remote_data'] = ApiClient.convertToType(data['remote_data'], [RemoteData]);

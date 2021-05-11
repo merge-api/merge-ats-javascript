@@ -12,9 +12,13 @@
  */
 
 import ApiClient from '../ApiClient';
+import convertRelatedObjectToType from '../Utils';
 import EmailAddressRequest from './EmailAddressRequest';
 import PhoneNumberRequest from './PhoneNumberRequest';
 import UrlRequest from './UrlRequest';
+import Tag from './Tag';
+import ApplicationRequest from './ApplicationRequest';
+import AttachmentRequest from './AttachmentRequest';
 
 /**
  * The CandidateRequest model module.
@@ -85,16 +89,22 @@ class CandidateRequest {
                 obj['locations'] = ApiClient.convertToType(data['locations'], ['String']);
             }
             if (data.hasOwnProperty('phone_numbers')) {
-                obj['phone_numbers'] = ApiClient.convertToType(data['phone_numbers'], [PhoneNumberRequest]);
+                obj['phone_numbers'] = convertRelatedObjectToType(data['phone_numbers'], PhoneNumberRequest, true);
             }
             if (data.hasOwnProperty('email_addresses')) {
-                obj['email_addresses'] = ApiClient.convertToType(data['email_addresses'], [EmailAddressRequest]);
+                obj['email_addresses'] = convertRelatedObjectToType(data['email_addresses'], EmailAddressRequest, true);
             }
             if (data.hasOwnProperty('urls')) {
-                obj['urls'] = ApiClient.convertToType(data['urls'], [UrlRequest]);
+                obj['urls'] = convertRelatedObjectToType(data['urls'], UrlRequest, true);
             }
             if (data.hasOwnProperty('tags')) {
-                obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
+                obj['tags'] = convertRelatedObjectToType(data['tags'], Tag, true);
+            }
+            if (data.hasOwnProperty('applications')) {
+                obj['applications'] = convertRelatedObjectToType(data['applications'], ApplicationRequest, true);
+            }
+            if (data.hasOwnProperty('attachments')) {
+                obj['attachments'] = convertRelatedObjectToType(data['attachments'], AttachmentRequest, true);
             }
         }
         return obj;
@@ -110,13 +120,13 @@ class CandidateRequest {
 CandidateRequest.prototype['remote_id'] = undefined;
 
 /**
- * The user's first name.
+ * The candidate's first name.
  * @member {String} first_name
  */
 CandidateRequest.prototype['first_name'] = undefined;
 
 /**
- * The user's last name.
+ * The candidate's last name.
  * @member {String} last_name
  */
 CandidateRequest.prototype['last_name'] = undefined;
@@ -188,6 +198,16 @@ CandidateRequest.prototype['urls'] = undefined;
  * @member {Array.<String>} tags
  */
 CandidateRequest.prototype['tags'] = undefined;
+
+/**
+ * @member {Array.<String>} applications
+ */
+CandidateRequest.prototype['applications'] = undefined;
+
+/**
+ * @member {Array.<String>} attachments
+ */
+CandidateRequest.prototype['attachments'] = undefined;
 
 
 

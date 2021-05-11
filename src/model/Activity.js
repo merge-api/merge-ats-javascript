@@ -12,8 +12,10 @@
  */
 
 import ApiClient from '../ApiClient';
+import convertRelatedObjectToType from '../Utils';
 import ActivityTypeEnum from './ActivityTypeEnum';
 import RemoteData from './RemoteData';
+import RemoteUser from './RemoteUser';
 import VisibilityEnum from './VisibilityEnum';
 
 /**
@@ -58,7 +60,7 @@ class Activity {
                 obj['remote_id'] = ApiClient.convertToType(data['remote_id'], 'String');
             }
             if (data.hasOwnProperty('user')) {
-                obj['user'] = ApiClient.convertToType(data['user'], 'String');
+                obj['user'] = convertRelatedObjectToType(data['user'], RemoteUser);
             }
             if (data.hasOwnProperty('remote_created_at')) {
                 obj['remote_created_at'] = ApiClient.convertToType(data['remote_created_at'], 'Date');

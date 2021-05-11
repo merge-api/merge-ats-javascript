@@ -12,6 +12,9 @@
  */
 
 import ApiClient from '../ApiClient';
+import convertRelatedObjectToType from '../Utils';
+import AttachmentTypeEnum from './AttachmentTypeEnum';
+import Candidate from './Candidate';
 import RemoteData from './RemoteData';
 
 /**
@@ -61,6 +64,12 @@ class Attachment {
             if (data.hasOwnProperty('file_url')) {
                 obj['file_url'] = ApiClient.convertToType(data['file_url'], 'String');
             }
+            if (data.hasOwnProperty('candidate')) {
+                obj['candidate'] = convertRelatedObjectToType(data['candidate'], Candidate);
+            }
+            if (data.hasOwnProperty('attachment_type')) {
+                obj['attachment_type'] = ApiClient.convertToType(data['attachment_type'], AttachmentTypeEnum);
+            }
             if (data.hasOwnProperty('remote_data')) {
                 obj['remote_data'] = ApiClient.convertToType(data['remote_data'], [RemoteData]);
             }
@@ -93,6 +102,17 @@ Attachment.prototype['file_name'] = undefined;
  * @member {String} file_url
  */
 Attachment.prototype['file_url'] = undefined;
+
+/**
+ * @member {String} candidate
+ */
+Attachment.prototype['candidate'] = undefined;
+
+/**
+ * The attachment's type.
+ * @member {module:model/AttachmentTypeEnum} attachment_type
+ */
+Attachment.prototype['attachment_type'] = undefined;
 
 /**
  * @member {Array.<module:model/RemoteData>} remote_data

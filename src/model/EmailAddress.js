@@ -63,7 +63,7 @@ class EmailAddress {
 }
 
 /**
- * The email's address.
+ * The email address.
  * @member {String} value
  */
 EmailAddress.prototype['value'] = undefined;

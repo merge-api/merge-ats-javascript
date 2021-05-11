@@ -7,7 +7,11 @@ exports["default"] = void 0;
 
 var _ApiClient = _interopRequireDefault(require("../ApiClient"));
 
+var _Utils = _interopRequireDefault(require("../Utils"));
+
 var _AttachmentTypeEnum = _interopRequireDefault(require("./AttachmentTypeEnum"));
+
+var _Candidate = _interopRequireDefault(require("./Candidate"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -70,7 +74,7 @@ var AttachmentRequest = /*#__PURE__*/function () {
         }
 
         if (data.hasOwnProperty('candidate')) {
-          obj['candidate'] = _ApiClient["default"].convertToType(data['candidate'], 'String');
+          obj['candidate'] = (0, _Utils["default"])(data['candidate'], _Candidate["default"]);
         }
 
         if (data.hasOwnProperty('attachment_type')) {

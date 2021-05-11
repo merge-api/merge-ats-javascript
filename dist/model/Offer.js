@@ -7,9 +7,15 @@ exports["default"] = void 0;
 
 var _ApiClient = _interopRequireDefault(require("../ApiClient"));
 
+var _Utils = _interopRequireDefault(require("../Utils"));
+
+var _Application = _interopRequireDefault(require("./Application"));
+
 var _OfferStatusEnum = _interopRequireDefault(require("./OfferStatusEnum"));
 
 var _RemoteData = _interopRequireDefault(require("./RemoteData"));
+
+var _RemoteUser = _interopRequireDefault(require("./RemoteUser"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -68,11 +74,11 @@ var Offer = /*#__PURE__*/function () {
         }
 
         if (data.hasOwnProperty('application')) {
-          obj['application'] = _ApiClient["default"].convertToType(data['application'], 'String');
+          obj['application'] = (0, _Utils["default"])(data['application'], _Application["default"]);
         }
 
         if (data.hasOwnProperty('creator')) {
-          obj['creator'] = _ApiClient["default"].convertToType(data['creator'], 'String');
+          obj['creator'] = (0, _Utils["default"])(data['creator'], _RemoteUser["default"]);
         }
 
         if (data.hasOwnProperty('remote_created_at')) {

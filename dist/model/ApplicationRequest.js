@@ -7,6 +7,20 @@ exports["default"] = void 0;
 
 var _ApiClient = _interopRequireDefault(require("../ApiClient"));
 
+var _Utils = _interopRequireDefault(require("../Utils"));
+
+var _Candidate = _interopRequireDefault(require("./Candidate"));
+
+var _CandidateRequest = _interopRequireDefault(require("./CandidateRequest"));
+
+var _Job = _interopRequireDefault(require("./Job"));
+
+var _JobInterviewStage = _interopRequireDefault(require("./JobInterviewStage"));
+
+var _RejectReason = _interopRequireDefault(require("./RejectReason"));
+
+var _RemoteUser = _interopRequireDefault(require("./RemoteUser"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -60,11 +74,11 @@ var ApplicationRequest = /*#__PURE__*/function () {
         }
 
         if (data.hasOwnProperty('candidate')) {
-          obj['candidate'] = data['candidate'];
+          obj['candidate'] = (0, _Utils["default"])(data['candidate'], _CandidateRequest["default"]);
         }
 
         if (data.hasOwnProperty('job')) {
-          obj['job'] = _ApiClient["default"].convertToType(data['job'], 'String');
+          obj['job'] = (0, _Utils["default"])(data['job'], _Job["default"]);
         }
 
         if (data.hasOwnProperty('applied_at')) {
@@ -80,15 +94,15 @@ var ApplicationRequest = /*#__PURE__*/function () {
         }
 
         if (data.hasOwnProperty('credited_to')) {
-          obj['credited_to'] = _ApiClient["default"].convertToType(data['credited_to'], 'String');
+          obj['credited_to'] = (0, _Utils["default"])(data['credited_to'], _RemoteUser["default"]);
         }
 
         if (data.hasOwnProperty('current_stage')) {
-          obj['current_stage'] = _ApiClient["default"].convertToType(data['current_stage'], 'String');
+          obj['current_stage'] = (0, _Utils["default"])(data['current_stage'], _JobInterviewStage["default"]);
         }
 
         if (data.hasOwnProperty('reject_reason')) {
-          obj['reject_reason'] = _ApiClient["default"].convertToType(data['reject_reason'], 'String');
+          obj['reject_reason'] = (0, _Utils["default"])(data['reject_reason'], _RejectReason["default"]);
         }
       }
 

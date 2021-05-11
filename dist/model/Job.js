@@ -7,9 +7,17 @@ exports["default"] = void 0;
 
 var _ApiClient = _interopRequireDefault(require("../ApiClient"));
 
+var _Utils = _interopRequireDefault(require("../Utils"));
+
 var _JobStatusEnum = _interopRequireDefault(require("./JobStatusEnum"));
 
 var _RemoteData = _interopRequireDefault(require("./RemoteData"));
+
+var _Department = _interopRequireDefault(require("./Department"));
+
+var _Office = _interopRequireDefault(require("./Office"));
+
+var _RemoteUser = _interopRequireDefault(require("./RemoteUser"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -92,15 +100,15 @@ var Job = /*#__PURE__*/function () {
         }
 
         if (data.hasOwnProperty('departments')) {
-          obj['departments'] = _ApiClient["default"].convertToType(data['departments'], ['String']);
+          obj['departments'] = (0, _Utils["default"])(data['departments'], _Department["default"], true);
         }
 
         if (data.hasOwnProperty('offices')) {
-          obj['offices'] = _ApiClient["default"].convertToType(data['offices'], ['String']);
+          obj['offices'] = (0, _Utils["default"])(data['offices'], _Office["default"], true);
         }
 
         if (data.hasOwnProperty('hiring_managers')) {
-          obj['hiring_managers'] = _ApiClient["default"].convertToType(data['hiring_managers'], ['String']);
+          obj['hiring_managers'] = (0, _Utils["default"])(data['hiring_managers'], _RemoteUser["default"], true);
         }
 
         if (data.hasOwnProperty('remote_data')) {

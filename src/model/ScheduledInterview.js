@@ -14,7 +14,6 @@
 import ApiClient from '../ApiClient';
 import convertRelatedObjectToType from '../Utils';import Application from './Application';
 import JobInterviewStage from './JobInterviewStage';
-ß
 import RemoteData from './RemoteData';
 import RemoteUser from './RemoteUser';
 import ScheduledInterviewStatusEnum from './ScheduledInterviewStatusEnum';

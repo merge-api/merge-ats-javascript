@@ -7,9 +7,17 @@ exports["default"] = void 0;
 
 var _ApiClient = _interopRequireDefault(require("../ApiClient"));
 
+var _Utils = _interopRequireDefault(require("../Utils"));
+
+var _Application = _interopRequireDefault(require("./Application"));
+
 var _OverallRecommendationEnum = _interopRequireDefault(require("./OverallRecommendationEnum"));
 
 var _RemoteData = _interopRequireDefault(require("./RemoteData"));
+
+var _RemoteUser = _interopRequireDefault(require("./RemoteUser"));
+
+var _ScheduledInterview = _interopRequireDefault(require("./ScheduledInterview"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -68,15 +76,15 @@ var Scorecard = /*#__PURE__*/function () {
         }
 
         if (data.hasOwnProperty('application')) {
-          obj['application'] = _ApiClient["default"].convertToType(data['application'], 'String');
+          obj['application'] = (0, _Utils["default"])(data['application'], _Application["default"]);
         }
 
         if (data.hasOwnProperty('interview')) {
-          obj['interview'] = _ApiClient["default"].convertToType(data['interview'], 'String');
+          obj['interview'] = (0, _Utils["default"])(data['interview'], _ScheduledInterview["default"]);
         }
 
         if (data.hasOwnProperty('interviewer')) {
-          obj['interviewer'] = _ApiClient["default"].convertToType(data['interviewer'], 'String');
+          obj['interviewer'] = (0, _Utils["default"])(data['interviewer'], _RemoteUser["default"]);
         }
 
         if (data.hasOwnProperty('remote_created_at')) {

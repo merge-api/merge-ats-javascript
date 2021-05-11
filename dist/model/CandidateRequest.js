@@ -7,11 +7,19 @@ exports["default"] = void 0;
 
 var _ApiClient = _interopRequireDefault(require("../ApiClient"));
 
+var _Utils = _interopRequireDefault(require("../Utils"));
+
 var _EmailAddressRequest = _interopRequireDefault(require("./EmailAddressRequest"));
 
 var _PhoneNumberRequest = _interopRequireDefault(require("./PhoneNumberRequest"));
 
 var _UrlRequest = _interopRequireDefault(require("./UrlRequest"));
+
+var _Tag = _interopRequireDefault(require("./Tag"));
+
+var _ApplicationRequest = _interopRequireDefault(require("./ApplicationRequest"));
+
+var _AttachmentRequest = _interopRequireDefault(require("./AttachmentRequest"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -106,27 +114,27 @@ var CandidateRequest = /*#__PURE__*/function () {
         }
 
         if (data.hasOwnProperty('phone_numbers')) {
-          obj['phone_numbers'] = _ApiClient["default"].convertToType(data['phone_numbers'], [_PhoneNumberRequest["default"]]);
+          obj['phone_numbers'] = (0, _Utils["default"])(data['phone_numbers'], _PhoneNumberRequest["default"], true);
         }
 
         if (data.hasOwnProperty('email_addresses')) {
-          obj['email_addresses'] = _ApiClient["default"].convertToType(data['email_addresses'], [_EmailAddressRequest["default"]]);
+          obj['email_addresses'] = (0, _Utils["default"])(data['email_addresses'], _EmailAddressRequest["default"], true);
         }
 
         if (data.hasOwnProperty('urls')) {
-          obj['urls'] = _ApiClient["default"].convertToType(data['urls'], [_UrlRequest["default"]]);
+          obj['urls'] = (0, _Utils["default"])(data['urls'], _UrlRequest["default"], true);
         }
 
         if (data.hasOwnProperty('tags')) {
-          obj['tags'] = _ApiClient["default"].convertToType(data['tags'], ['String']);
+          obj['tags'] = (0, _Utils["default"])(data['tags'], _Tag["default"], true);
         }
 
         if (data.hasOwnProperty('applications')) {
-          obj['applications'] = _ApiClient["default"].convertToType(data['applications'], ['String']);
+          obj['applications'] = (0, _Utils["default"])(data['applications'], _ApplicationRequest["default"], true);
         }
 
         if (data.hasOwnProperty('attachments')) {
-          obj['attachments'] = _ApiClient["default"].convertToType(data['attachments'], ['String']);
+          obj['attachments'] = (0, _Utils["default"])(data['attachments'], _AttachmentRequest["default"], true);
         }
       }
 

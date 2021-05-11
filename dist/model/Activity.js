@@ -7,9 +7,13 @@ exports["default"] = void 0;
 
 var _ApiClient = _interopRequireDefault(require("../ApiClient"));
 
+var _Utils = _interopRequireDefault(require("../Utils"));
+
 var _ActivityTypeEnum = _interopRequireDefault(require("./ActivityTypeEnum"));
 
 var _RemoteData = _interopRequireDefault(require("./RemoteData"));
+
+var _RemoteUser = _interopRequireDefault(require("./RemoteUser"));
 
 var _VisibilityEnum = _interopRequireDefault(require("./VisibilityEnum"));
 
@@ -70,7 +74,7 @@ var Activity = /*#__PURE__*/function () {
         }
 
         if (data.hasOwnProperty('user')) {
-          obj['user'] = _ApiClient["default"].convertToType(data['user'], 'String');
+          obj['user'] = (0, _Utils["default"])(data['user'], _RemoteUser["default"]);
         }
 
         if (data.hasOwnProperty('remote_created_at')) {

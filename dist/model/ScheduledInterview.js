@@ -7,7 +7,15 @@ exports["default"] = void 0;
 
 var _ApiClient = _interopRequireDefault(require("../ApiClient"));
 
+var _Utils = _interopRequireDefault(require("../Utils"));
+
+var _Application = _interopRequireDefault(require("./Application"));
+
+var _JobInterviewStage = _interopRequireDefault(require("./JobInterviewStage"));
+
 var _RemoteData = _interopRequireDefault(require("./RemoteData"));
+
+var _RemoteUser = _interopRequireDefault(require("./RemoteUser"));
 
 var _ScheduledInterviewStatusEnum = _interopRequireDefault(require("./ScheduledInterviewStatusEnum"));
 
@@ -68,19 +76,19 @@ var ScheduledInterview = /*#__PURE__*/function () {
         }
 
         if (data.hasOwnProperty('application')) {
-          obj['application'] = _ApiClient["default"].convertToType(data['application'], 'String');
+          obj['application'] = (0, _Utils["default"])(data['application'], _Application["default"]);
         }
 
         if (data.hasOwnProperty('job_interview_stage')) {
-          obj['job_interview_stage'] = _ApiClient["default"].convertToType(data['job_interview_stage'], 'String');
+          obj['job_interview_stage'] = (0, _Utils["default"])(data['job_interview_stage'], _JobInterviewStage["default"]);
         }
 
         if (data.hasOwnProperty('organizer')) {
-          obj['organizer'] = _ApiClient["default"].convertToType(data['organizer'], 'String');
+          obj['organizer'] = (0, _Utils["default"])(data['organizer'], _RemoteUser["default"]);
         }
 
         if (data.hasOwnProperty('interviewers')) {
-          obj['interviewers'] = _ApiClient["default"].convertToType(data['interviewers'], ['String']);
+          obj['interviewers'] = _ApiClient["default"].convertToType(data['interviewers'], _RemoteUser["default"], true);
         }
 
         if (data.hasOwnProperty('location')) {

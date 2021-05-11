@@ -7,6 +7,10 @@ exports["default"] = void 0;
 
 var _ApiClient = _interopRequireDefault(require("../ApiClient"));
 
+var _Utils = _interopRequireDefault(require("../Utils"));
+
+var _Job = _interopRequireDefault(require("./Job"));
+
 var _RemoteData = _interopRequireDefault(require("./RemoteData"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -70,7 +74,7 @@ var JobInterviewStage = /*#__PURE__*/function () {
         }
 
         if (data.hasOwnProperty('job')) {
-          obj['job'] = _ApiClient["default"].convertToType(data['job'], 'String');
+          obj['job'] = _ApiClient["default"].convertToType(data['job'], _Job["default"]);
         }
 
         if (data.hasOwnProperty('remote_data')) {

@@ -12,10 +12,14 @@
  */
 
 import ApiClient from '../ApiClient';
+import convertRelatedObjectToType from '../Utils';
 import EmailAddress from './EmailAddress';
 import PhoneNumber from './PhoneNumber';
 import RemoteData from './RemoteData';
 import Url from './Url';
+import Tag from './Tag';
+import Application from './Application';
+import Attachment from './Attachment';
 
 /**
  * The Candidate model module.
@@ -101,10 +105,10 @@ class Candidate {
                 obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
             }
             if (data.hasOwnProperty('applications')) {
-                obj['applications'] = ApiClient.convertToType(data['applications'], ['String']);
+                obj['applications'] = convertRelatedObjectToType(data['applications'], Application);
             }
             if (data.hasOwnProperty('attachments')) {
-                obj['attachments'] = ApiClient.convertToType(data['attachments'], ['String']);
+                obj['attachments'] = convertRelatedObjectToType(data['attachments'], Attachment);
             }
             if (data.hasOwnProperty('remote_data')) {
                 obj['remote_data'] = ApiClient.convertToType(data['remote_data'], [RemoteData]);

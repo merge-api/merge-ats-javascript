@@ -11,8 +11,14 @@
  *
  */
 
-import ApiClient from '../ApiClient';
-import RemoteData from './RemoteData';
+ import ApiClient from '../ApiClient';
+ import convertRelatedObjectToType from '../Utils'
+ import RemoteData from './RemoteData';
+ import Candidate from './Candidate';
+ import Job from './Job';
+ import RemoteUser from './RemoteUser';
+ import JobInterviewStage from './JobInterviewStage';
+ import RejectReason from './RejectReason';
 
 /**
  * The Application model module.
@@ -71,13 +77,13 @@ class Application {
                 obj['source'] = ApiClient.convertToType(data['source'], 'String');
             }
             if (data.hasOwnProperty('credited_to')) {
-                obj['credited_to'] = ApiClient.convertToType(data['credited_to'], 'String');
+                obj['credited_to'] = convertRelatedObjectToType(data['credited_to'], RemoteUser)
             }
             if (data.hasOwnProperty('current_stage')) {
-                obj['current_stage'] = ApiClient.convertToType(data['current_stage'], 'String');
+                obj['current_stage'] = convertRelatedObjectToType( data['current_stage'], JobInterviewStage);
             }
             if (data.hasOwnProperty('reject_reason')) {
-                obj['reject_reason'] = ApiClient.convertToType(data['reject_reason'], 'String');
+                obj['reject_reason'] = convertRelatedObjectToType(data['reject_reason'], RejectReason);
             }
             if (data.hasOwnProperty('remote_data')) {
                 obj['remote_data'] = ApiClient.convertToType(data['remote_data'], [RemoteData]);

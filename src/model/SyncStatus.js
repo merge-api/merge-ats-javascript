@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import SyncStatusStatusEnum from './SyncStatusStatusEnum';
 
 /**
  * The SyncStatus model module.
@@ -27,7 +28,7 @@ class SyncStatus {
      * @param modelId {String} 
      * @param lastSyncStart {Date} 
      * @param nextSyncStart {Date} 
-     * @param status {String} 
+     * @param status {module:model/SyncStatusStatusEnum} 
      * @param isInitialSync {Boolean} 
      */
     constructor(modelName, modelId, lastSyncStart, nextSyncStart, status, isInitialSync) { 
@@ -73,7 +74,7 @@ class SyncStatus {
                 obj['next_sync_start'] = ApiClient.convertToType(data['next_sync_start'], 'Date');
             }
             if (data.hasOwnProperty('status')) {
-                obj['status'] = ApiClient.convertToType(data['status'], 'String');
+                obj['status'] = ApiClient.convertToType(data['status'], SyncStatusStatusEnum);
             }
             if (data.hasOwnProperty('is_initial_sync')) {
                 obj['is_initial_sync'] = ApiClient.convertToType(data['is_initial_sync'], 'Boolean');
@@ -106,7 +107,7 @@ SyncStatus.prototype['last_sync_start'] = undefined;
 SyncStatus.prototype['next_sync_start'] = undefined;
 
 /**
- * @member {String} status
+ * @member {module:model/SyncStatusStatusEnum} status
  */
 SyncStatus.prototype['status'] = undefined;
 

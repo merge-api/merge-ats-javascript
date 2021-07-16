@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## candidatesCreate
 
-> Candidate candidatesCreate(xAccountToken, remoteUserId, opts)
+> Candidate candidatesCreate(xAccountToken, opts)
 
 
 
@@ -31,12 +31,12 @@ tokenAuth.apiKey = 'YOUR API KEY';
 
 let apiInstance = new MergeAtsApi.CandidatesApi();
 let xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
-let remoteUserId = "remoteUserId_example"; // String | The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
 let opts = {
+  'remoteUserId': "remoteUserId_example", // String | The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
   'runAsync': true, // Boolean | Whether or not third-party updates should be run asynchronously.
   'candidateRequest': new MergeAtsApi.CandidateRequest() // CandidateRequest | 
 };
-apiInstance.candidatesCreate(xAccountToken, remoteUserId, opts, (error, data, response) => {
+apiInstance.candidatesCreate(xAccountToken, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -51,7 +51,7 @@ apiInstance.candidatesCreate(xAccountToken, remoteUserId, opts, (error, data, re
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xAccountToken** | **String**| Token identifying the end user. | 
- **remoteUserId** | **String**| The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. | 
+ **remoteUserId** | **String**| The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. | [optional] 
  **runAsync** | **Boolean**| Whether or not third-party updates should be run asynchronously. | [optional] 
  **candidateRequest** | [**CandidateRequest**](CandidateRequest.md)|  | [optional] 
 
@@ -94,8 +94,11 @@ let opts = {
   'createdAfter': new Date("2013-10-20T19:20:30+01:00"), // Date | If provided, will only return objects created after this datetime.
   'createdBefore': new Date("2013-10-20T19:20:30+01:00"), // Date | If provided, will only return objects created before this datetime.
   'cursor': cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw, // String | The pagination cursor value.
+  'emailAddress': "emailAddress_example", // String | If provided, will only return candidates with this email_address.
   'expand': applications,attachments, // String | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
+  'firstName': "firstName_example", // String | If provided, will only return candidates with this first name.
   'includeRemoteData': true, // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
+  'lastName': "lastName_example", // String | If provided, will only return candidates with this last name.
   'modifiedAfter': new Date("2013-10-20T19:20:30+01:00"), // Date | If provided, will only return objects modified after this datetime.
   'modifiedBefore': new Date("2013-10-20T19:20:30+01:00"), // Date | If provided, will only return objects modified before this datetime.
   'pageSize': 56, // Number | Number of results to return per page.
@@ -119,8 +122,11 @@ Name | Type | Description  | Notes
  **createdAfter** | **Date**| If provided, will only return objects created after this datetime. | [optional] 
  **createdBefore** | **Date**| If provided, will only return objects created before this datetime. | [optional] 
  **cursor** | **String**| The pagination cursor value. | [optional] 
+ **emailAddress** | **String**| If provided, will only return candidates with this email_address. | [optional] 
  **expand** | **String**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] 
+ **firstName** | **String**| If provided, will only return candidates with this first name. | [optional] 
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional] 
+ **lastName** | **String**| If provided, will only return candidates with this last name. | [optional] 
  **modifiedAfter** | **Date**| If provided, will only return objects modified after this datetime. | [optional] 
  **modifiedBefore** | **Date**| If provided, will only return objects modified before this datetime. | [optional] 
  **pageSize** | **Number**| Number of results to return per page. | [optional] 

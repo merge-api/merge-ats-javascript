@@ -6,14 +6,13 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**applicationsCreate**](ApplicationsApi.md#applicationsCreate) | **POST** /applications | 
 [**applicationsList**](ApplicationsApi.md#applicationsList) | **GET** /applications | 
-[**applicationsPartialUpdate**](ApplicationsApi.md#applicationsPartialUpdate) | **PATCH** /applications/{id} | 
 [**applicationsRetrieve**](ApplicationsApi.md#applicationsRetrieve) | **GET** /applications/{id} | 
 
 
 
 ## applicationsCreate
 
-> Application applicationsCreate(xAccountToken, remoteUserId, opts)
+> Application applicationsCreate(xAccountToken, opts)
 
 
 
@@ -32,12 +31,12 @@ tokenAuth.apiKey = 'YOUR API KEY';
 
 let apiInstance = new MergeAtsApi.ApplicationsApi();
 let xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
-let remoteUserId = "remoteUserId_example"; // String | The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
 let opts = {
+  'remoteUserId': "remoteUserId_example", // String | The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
   'runAsync': true, // Boolean | Whether or not third-party updates should be run asynchronously.
   'applicationRequest': new MergeAtsApi.ApplicationRequest() // ApplicationRequest | 
 };
-apiInstance.applicationsCreate(xAccountToken, remoteUserId, opts, (error, data, response) => {
+apiInstance.applicationsCreate(xAccountToken, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -52,7 +51,7 @@ apiInstance.applicationsCreate(xAccountToken, remoteUserId, opts, (error, data, 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xAccountToken** | **String**| Token identifying the end user. | 
- **remoteUserId** | **String**| The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. | 
+ **remoteUserId** | **String**| The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. | [optional] 
  **runAsync** | **Boolean**| Whether or not third-party updates should be run asynchronously. | [optional] 
  **applicationRequest** | [**ApplicationRequest**](ApplicationRequest.md)|  | [optional] 
 
@@ -148,67 +147,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## applicationsPartialUpdate
-
-> Application applicationsPartialUpdate(xAccountToken, id, remoteUserId, opts)
-
-
-
-Updates an &#x60;Application&#x60; object with the given &#x60;id&#x60;.
-
-### Example
-
-```javascript
-import MergeAtsApi from 'merge_ats_api';
-let defaultClient = MergeAtsApi.ApiClient.instance;
-// Configure API key authorization: tokenAuth
-let tokenAuth = defaultClient.authentications['tokenAuth'];
-tokenAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//tokenAuth.apiKeyPrefix = 'Token';
-
-let apiInstance = new MergeAtsApi.ApplicationsApi();
-let xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
-let id = null; // String | 
-let remoteUserId = "remoteUserId_example"; // String | The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
-let opts = {
-  'runAsync': true, // Boolean | Whether or not third-party updates should be run asynchronously.
-  'patchedApplicationRequest': new MergeAtsApi.PatchedApplicationRequest() // PatchedApplicationRequest | 
-};
-apiInstance.applicationsPartialUpdate(xAccountToken, id, remoteUserId, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xAccountToken** | **String**| Token identifying the end user. | 
- **id** | [**String**](.md)|  | 
- **remoteUserId** | **String**| The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. | 
- **runAsync** | **Boolean**| Whether or not third-party updates should be run asynchronously. | [optional] 
- **patchedApplicationRequest** | [**PatchedApplicationRequest**](PatchedApplicationRequest.md)|  | [optional] 
-
-### Return type
-
-[**Application**](Application.md)
-
-### Authorization
-
-[tokenAuth](../README.md#tokenAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
 - **Accept**: application/json
 
 

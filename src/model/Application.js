@@ -19,41 +19,42 @@
  import RemoteUser from './RemoteUser';
  import JobInterviewStage from './JobInterviewStage';
  import RejectReason from './RejectReason';
- 
- /**
-  * The Application model module.
-  * @module model/Application
-  * @version 1.0
-  */
- class Application {
-     /**
-      * Constructs a new <code>Application</code>.
-      * # The Application Object ### Description The &#x60;Application&#x60; object is used to represent an Application for a job position.  ### Usage Example Fetch from the &#x60;LIST Applications&#x60; endpoint and filter by &#x60;ID&#x60; to show all applications.
-      * @alias module:model/Application
-      */
-     constructor() { 
-         
-         Application.initialize(this);
-     }
- 
-     /**
-      * Initializes the fields of this object.
-      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
-      * Only for internal use.
-      */
-     static initialize(obj) { 
-     }
- 
-     /**
-      * Constructs a <code>Application</code> from a plain JavaScript object, optionally creating a new instance.
-      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-      * @param {Object} data The plain JavaScript object bearing properties of interest.
-      * @param {module:model/Application} obj Optional instance to populate.
-      * @return {module:model/Application} The populated <code>Application</code> instance.
-      */
-     static constructFromObject(data, obj) {
+
+/**
+ * The Application model module.
+ * @module model/Application
+ * @version 1.0
+ */
+class Application {
+    /**
+     * Constructs a new <code>Application</code>.
+     * # The Application Object ### Description The &#x60;Application&#x60; object is used to represent an Application for a job position.  ### Usage Example Fetch from the &#x60;LIST Applications&#x60; endpoint and filter by &#x60;ID&#x60; to show all applications.
+     * @alias module:model/Application
+     */
+    constructor() { 
+        
+        Application.initialize(this);
+    }
+
+    /**
+     * Initializes the fields of this object.
+     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
+     * Only for internal use.
+     */
+    static initialize(obj) { 
+    }
+
+    /**
+     * Constructs a <code>Application</code> from a plain JavaScript object, optionally creating a new instance.
+     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @param {module:model/Application} obj Optional instance to populate.
+     * @return {module:model/Application} The populated <code>Application</code> instance.
+     */
+    static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new Application();
+
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
@@ -89,79 +90,79 @@
             }
         }
         return obj;
-     }
- 
- 
- }
- 
- /**
-  * @member {String} id
-  */
- Application.prototype['id'] = undefined;
- 
- /**
-  * The third-party API ID of the matching object.
-  * @member {String} remote_id
-  */
- Application.prototype['remote_id'] = undefined;
- 
- /**
-  * The candidate applying.
-  * @member {String} candidate
-  */
- Application.prototype['candidate'] = undefined;
- 
- /**
-  * The job being applied for.
-  * @member {String} job
-  */
- Application.prototype['job'] = undefined;
- 
- /**
-  * When the application was submitted.
-  * @member {Date} applied_at
-  */
- Application.prototype['applied_at'] = undefined;
- 
- /**
-  * When the application was rejected.
-  * @member {Date} rejected_at
-  */
- Application.prototype['rejected_at'] = undefined;
- 
- /**
-  * The application's source.
-  * @member {String} source
-  */
- Application.prototype['source'] = undefined;
- 
- /**
-  * The user credited for this application.
-  * @member {String} credited_to
-  */
- Application.prototype['credited_to'] = undefined;
- 
- /**
-  * The application's current stage.
-  * @member {String} current_stage
-  */
- Application.prototype['current_stage'] = undefined;
- 
- /**
-  * The application's reason for rejection.
-  * @member {String} reject_reason
-  */
- Application.prototype['reject_reason'] = undefined;
- 
- /**
-  * @member {Array.<module:model/RemoteData>} remote_data
-  */
- Application.prototype['remote_data'] = undefined;
- 
- 
- 
- 
- 
- 
- export default Application;
- 
+    }
+
+
+}
+
+/**
+ * @member {String} id
+ */
+Application.prototype['id'] = undefined;
+
+/**
+ * The third-party API ID of the matching object.
+ * @member {String} remote_id
+ */
+Application.prototype['remote_id'] = undefined;
+
+/**
+ * The candidate applying.
+ * @member {String} candidate
+ */
+Application.prototype['candidate'] = undefined;
+
+/**
+ * The job being applied for.
+ * @member {String} job
+ */
+Application.prototype['job'] = undefined;
+
+/**
+ * When the application was submitted.
+ * @member {Date} applied_at
+ */
+Application.prototype['applied_at'] = undefined;
+
+/**
+ * When the application was rejected.
+ * @member {Date} rejected_at
+ */
+Application.prototype['rejected_at'] = undefined;
+
+/**
+ * The application's source.
+ * @member {String} source
+ */
+Application.prototype['source'] = undefined;
+
+/**
+ * The user credited for this application.
+ * @member {String} credited_to
+ */
+Application.prototype['credited_to'] = undefined;
+
+/**
+ * The application's current stage.
+ * @member {String} current_stage
+ */
+Application.prototype['current_stage'] = undefined;
+
+/**
+ * The application's reason for rejection.
+ * @member {String} reject_reason
+ */
+Application.prototype['reject_reason'] = undefined;
+
+/**
+ * @member {Array.<module:model/RemoteData>} remote_data
+ */
+Application.prototype['remote_data'] = undefined;
+
+
+
+
+
+
+export default Application;
+

@@ -144,16 +144,19 @@ Job.prototype['remote_updated_at'] = undefined;
 Job.prototype['confidential'] = undefined;
 
 /**
+ * IDs of `Department` objects for this `Job`.
  * @member {Array.<String>} departments
  */
 Job.prototype['departments'] = undefined;
 
 /**
+ * IDs of `Office` objects for this `Job`.
  * @member {Array.<String>} offices
  */
 Job.prototype['offices'] = undefined;
 
 /**
+ * IDs of `RemoteUser` objects that serve as hiring managers for this `Job`.
  * @member {Array.<String>} hiring_managers
  */
 Job.prototype['hiring_managers'] = undefined;

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **modelId** | **String** |  | 
 **lastSyncStart** | **Date** |  | 
 **nextSyncStart** | **Date** |  | 
-**status** | **String** |  | 
+**status** | [**SyncStatusStatusEnum**](SyncStatusStatusEnum.md) |  | 
 **isInitialSync** | **Boolean** |  | 
 
 

@@ -36,6 +36,8 @@ import EmailAddressTypeEnum from './model/EmailAddressTypeEnum';
 import EndUserDetailsRequest from './model/EndUserDetailsRequest';
 import GenderEnum from './model/GenderEnum';
 import GenerateRemoteKeyRequest from './model/GenerateRemoteKeyRequest';
+import Issue from './model/Issue';
+import IssueStatusEnum from './model/IssueStatusEnum';
 import Job from './model/Job';
 import JobInterviewStage from './model/JobInterviewStage';
 import JobStatusEnum from './model/JobStatusEnum';
@@ -52,6 +54,7 @@ import PaginatedAttachmentList from './model/PaginatedAttachmentList';
 import PaginatedCandidateList from './model/PaginatedCandidateList';
 import PaginatedDepartmentList from './model/PaginatedDepartmentList';
 import PaginatedEEOCList from './model/PaginatedEEOCList';
+import PaginatedIssueList from './model/PaginatedIssueList';
 import PaginatedJobInterviewStageList from './model/PaginatedJobInterviewStageList';
 import PaginatedJobList from './model/PaginatedJobList';
 import PaginatedOfferList from './model/PaginatedOfferList';
@@ -60,8 +63,8 @@ import PaginatedRejectReasonList from './model/PaginatedRejectReasonList';
 import PaginatedRemoteUserList from './model/PaginatedRemoteUserList';
 import PaginatedScheduledInterviewList from './model/PaginatedScheduledInterviewList';
 import PaginatedScorecardList from './model/PaginatedScorecardList';
+import PaginatedSyncStatusList from './model/PaginatedSyncStatusList';
 import PaginatedTagList from './model/PaginatedTagList';
-import PatchedApplicationRequest from './model/PatchedApplicationRequest';
 import PhoneNumber from './model/PhoneNumber';
 import PhoneNumberRequest from './model/PhoneNumberRequest';
 import PhoneNumberTypeEnum from './model/PhoneNumberTypeEnum';
@@ -73,10 +76,14 @@ import RemoteKey from './model/RemoteKey';
 import RemoteKeyForRegenerationRequest from './model/RemoteKeyForRegenerationRequest';
 import RemoteResponse from './model/RemoteResponse';
 import RemoteUser from './model/RemoteUser';
+import RemoteUserRequest from './model/RemoteUserRequest';
 import ScheduledInterview from './model/ScheduledInterview';
+import ScheduledInterviewRequest from './model/ScheduledInterviewRequest';
 import ScheduledInterviewStatusEnum from './model/ScheduledInterviewStatusEnum';
 import Scorecard from './model/Scorecard';
+import ScorecardRequest from './model/ScorecardRequest';
 import SyncStatus from './model/SyncStatus';
+import SyncStatusStatusEnum from './model/SyncStatusStatusEnum';
 import Tag from './model/Tag';
 import Url from './model/Url';
 import UrlRequest from './model/UrlRequest';
@@ -89,10 +96,12 @@ import ApplicationsApi from './api/ApplicationsApi';
 import AttachmentsApi from './api/AttachmentsApi';
 import AvailableActionsApi from './api/AvailableActionsApi';
 import CandidatesApi from './api/CandidatesApi';
+import DeleteAccountApi from './api/DeleteAccountApi';
 import DepartmentsApi from './api/DepartmentsApi';
 import EeocsApi from './api/EeocsApi';
 import GenerateKeyApi from './api/GenerateKeyApi';
 import InterviewsApi from './api/InterviewsApi';
+import IssuesApi from './api/IssuesApi';
 import JobInterviewStagesApi from './api/JobInterviewStagesApi';
 import JobsApi from './api/JobsApi';
 import LinkTokenApi from './api/LinkTokenApi';
@@ -285,6 +294,18 @@ export {
     GenerateRemoteKeyRequest,
 
     /**
+     * The Issue model constructor.
+     * @property {module:model/Issue}
+     */
+    Issue,
+
+    /**
+     * The IssueStatusEnum model constructor.
+     * @property {module:model/IssueStatusEnum}
+     */
+    IssueStatusEnum,
+
+    /**
      * The Job model constructor.
      * @property {module:model/Job}
      */
@@ -381,6 +402,12 @@ export {
     PaginatedEEOCList,
 
     /**
+     * The PaginatedIssueList model constructor.
+     * @property {module:model/PaginatedIssueList}
+     */
+    PaginatedIssueList,
+
+    /**
      * The PaginatedJobInterviewStageList model constructor.
      * @property {module:model/PaginatedJobInterviewStageList}
      */
@@ -429,16 +456,16 @@ export {
     PaginatedScorecardList,
 
     /**
+     * The PaginatedSyncStatusList model constructor.
+     * @property {module:model/PaginatedSyncStatusList}
+     */
+    PaginatedSyncStatusList,
+
+    /**
      * The PaginatedTagList model constructor.
      * @property {module:model/PaginatedTagList}
      */
     PaginatedTagList,
-
-    /**
-     * The PatchedApplicationRequest model constructor.
-     * @property {module:model/PatchedApplicationRequest}
-     */
-    PatchedApplicationRequest,
 
     /**
      * The PhoneNumber model constructor.
@@ -507,10 +534,22 @@ export {
     RemoteUser,
 
     /**
+     * The RemoteUserRequest model constructor.
+     * @property {module:model/RemoteUserRequest}
+     */
+    RemoteUserRequest,
+
+    /**
      * The ScheduledInterview model constructor.
      * @property {module:model/ScheduledInterview}
      */
     ScheduledInterview,
+
+    /**
+     * The ScheduledInterviewRequest model constructor.
+     * @property {module:model/ScheduledInterviewRequest}
+     */
+    ScheduledInterviewRequest,
 
     /**
      * The ScheduledInterviewStatusEnum model constructor.
@@ -525,10 +564,22 @@ export {
     Scorecard,
 
     /**
+     * The ScorecardRequest model constructor.
+     * @property {module:model/ScorecardRequest}
+     */
+    ScorecardRequest,
+
+    /**
      * The SyncStatus model constructor.
      * @property {module:model/SyncStatus}
      */
     SyncStatus,
+
+    /**
+     * The SyncStatusStatusEnum model constructor.
+     * @property {module:model/SyncStatusStatusEnum}
+     */
+    SyncStatusStatusEnum,
 
     /**
      * The Tag model constructor.
@@ -603,6 +654,12 @@ export {
     CandidatesApi,
 
     /**
+    * The DeleteAccountApi service constructor.
+    * @property {module:api/DeleteAccountApi}
+    */
+    DeleteAccountApi,
+
+    /**
     * The DepartmentsApi service constructor.
     * @property {module:api/DepartmentsApi}
     */
@@ -625,6 +682,12 @@ export {
     * @property {module:api/InterviewsApi}
     */
     InterviewsApi,
+
+    /**
+    * The IssuesApi service constructor.
+    * @property {module:api/IssuesApi}
+    */
+    IssuesApi,
 
     /**
     * The JobInterviewStagesApi service constructor.
@@ -696,5 +759,5 @@ export {
     * The UsersApi service constructor.
     * @property {module:api/UsersApi}
     */
-    UsersApi,
+    UsersApi
 };

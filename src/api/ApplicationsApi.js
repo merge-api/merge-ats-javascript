@@ -16,7 +16,6 @@ import ApiClient from "../ApiClient";
 import Application from '../model/Application';
 import ApplicationRequest from '../model/ApplicationRequest';
 import PaginatedApplicationList from '../model/PaginatedApplicationList';
-import PatchedApplicationRequest from '../model/PatchedApplicationRequest';
 
 /**
 * Applications service.
@@ -48,29 +47,25 @@ export default class ApplicationsApi {
     /**
      * Creates an `Application` object with the given values.
      * @param {String} xAccountToken Token identifying the end user.
-     * @param {String} remoteUserId The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
      * @param {Object} opts Optional parameters
+     * @param {String} opts.remoteUserId The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
      * @param {Boolean} opts.runAsync Whether or not third-party updates should be run asynchronously.
      * @param {module:model/ApplicationRequest} opts.applicationRequest 
      * @param {module:api/ApplicationsApi~applicationsCreateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Application}
      */
-    applicationsCreate(xAccountToken, remoteUserId, opts, callback) {
+    applicationsCreate(xAccountToken, opts, callback) {
       opts = opts || {};
       let postBody = opts['applicationRequest'];
       // verify the required parameter 'xAccountToken' is set
       if (xAccountToken === undefined || xAccountToken === null) {
         throw new Error("Missing the required parameter 'xAccountToken' when calling applicationsCreate");
       }
-      // verify the required parameter 'remoteUserId' is set
-      if (remoteUserId === undefined || remoteUserId === null) {
-        throw new Error("Missing the required parameter 'remoteUserId' when calling applicationsCreate");
-      }
 
       let pathParams = {
       };
       let queryParams = {
-        'remote_user_id': remoteUserId,
+        'remote_user_id': opts['remoteUserId'],
         'run_async': opts['runAsync']
       };
       let headerParams = {
@@ -157,65 +152,6 @@ export default class ApplicationsApi {
       let returnType = PaginatedApplicationList;
       return this.apiClient.callApi(
         '/applications', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the applicationsPartialUpdate operation.
-     * @callback module:api/ApplicationsApi~applicationsPartialUpdateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Application} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Updates an `Application` object with the given `id`.
-     * @param {String} xAccountToken Token identifying the end user.
-     * @param {String} id 
-     * @param {String} remoteUserId The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
-     * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.runAsync Whether or not third-party updates should be run asynchronously.
-     * @param {module:model/PatchedApplicationRequest} opts.patchedApplicationRequest 
-     * @param {module:api/ApplicationsApi~applicationsPartialUpdateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Application}
-     */
-    applicationsPartialUpdate(xAccountToken, id, remoteUserId, opts, callback) {
-      opts = opts || {};
-      let postBody = opts['patchedApplicationRequest'];
-      // verify the required parameter 'xAccountToken' is set
-      if (xAccountToken === undefined || xAccountToken === null) {
-        throw new Error("Missing the required parameter 'xAccountToken' when calling applicationsPartialUpdate");
-      }
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling applicationsPartialUpdate");
-      }
-      // verify the required parameter 'remoteUserId' is set
-      if (remoteUserId === undefined || remoteUserId === null) {
-        throw new Error("Missing the required parameter 'remoteUserId' when calling applicationsPartialUpdate");
-      }
-
-      let pathParams = {
-        'id': id
-      };
-      let queryParams = {
-        'remote_user_id': remoteUserId,
-        'run_async': opts['runAsync']
-      };
-      let headerParams = {
-        'X-Account-Token': xAccountToken
-      };
-      let formParams = {
-      };
-
-      let authNames = ['tokenAuth'];
-      let contentTypes = ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'];
-      let accepts = ['application/json'];
-      let returnType = Application;
-      return this.apiClient.callApi(
-        '/applications/{id}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

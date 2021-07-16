@@ -25,11 +25,10 @@ class EndUserDetailsRequest {
      * @param endUserEmailAddress {String} 
      * @param endUserOrganizationName {String} 
      * @param endUserOriginId {String} 
-     * @param categories {Array.<module:model/EndUserDetailsRequest.CategoriesEnum>} 
      */
-    constructor(endUserEmailAddress, endUserOrganizationName, endUserOriginId, categories) { 
+    constructor(endUserEmailAddress, endUserOrganizationName, endUserOriginId) { 
         
-        EndUserDetailsRequest.initialize(this, endUserEmailAddress, endUserOrganizationName, endUserOriginId, categories);
+        EndUserDetailsRequest.initialize(this, endUserEmailAddress, endUserOrganizationName, endUserOriginId);
     }
 
     /**
@@ -37,11 +36,10 @@ class EndUserDetailsRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, endUserEmailAddress, endUserOrganizationName, endUserOriginId, categories) { 
+    static initialize(obj, endUserEmailAddress, endUserOrganizationName, endUserOriginId) { 
         obj['end_user_email_address'] = endUserEmailAddress;
         obj['end_user_organization_name'] = endUserOrganizationName;
         obj['end_user_origin_id'] = endUserOriginId;
-        obj['categories'] = categories;
     }
 
     /**
@@ -123,7 +121,13 @@ EndUserDetailsRequest['CategoriesEnum'] = {
      * value: "ats"
      * @const
      */
-    "ats": "ats"
+    "ats": "ats",
+
+    /**
+     * value: "accounting"
+     * @const
+     */
+    "accounting": "accounting"
 };
 
 

@@ -47,29 +47,25 @@ export default class CandidatesApi {
     /**
      * Creates a `Candidate` object with the given values.
      * @param {String} xAccountToken Token identifying the end user.
-     * @param {String} remoteUserId The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
      * @param {Object} opts Optional parameters
+     * @param {String} opts.remoteUserId The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
      * @param {Boolean} opts.runAsync Whether or not third-party updates should be run asynchronously.
      * @param {module:model/CandidateRequest} opts.candidateRequest 
      * @param {module:api/CandidatesApi~candidatesCreateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Candidate}
      */
-    candidatesCreate(xAccountToken, remoteUserId, opts, callback) {
+    candidatesCreate(xAccountToken, opts, callback) {
       opts = opts || {};
       let postBody = opts['candidateRequest'];
       // verify the required parameter 'xAccountToken' is set
       if (xAccountToken === undefined || xAccountToken === null) {
         throw new Error("Missing the required parameter 'xAccountToken' when calling candidatesCreate");
       }
-      // verify the required parameter 'remoteUserId' is set
-      if (remoteUserId === undefined || remoteUserId === null) {
-        throw new Error("Missing the required parameter 'remoteUserId' when calling candidatesCreate");
-      }
 
       let pathParams = {
       };
       let queryParams = {
-        'remote_user_id': remoteUserId,
+        'remote_user_id': opts['remoteUserId'],
         'run_async': opts['runAsync']
       };
       let headerParams = {
@@ -104,8 +100,11 @@ export default class CandidatesApi {
      * @param {Date} opts.createdAfter If provided, will only return objects created after this datetime.
      * @param {Date} opts.createdBefore If provided, will only return objects created before this datetime.
      * @param {String} opts.cursor The pagination cursor value.
+     * @param {String} opts.emailAddress If provided, will only return candidates with this email_address.
      * @param {module:model/String} opts.expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
+     * @param {String} opts.firstName If provided, will only return candidates with this first name.
      * @param {Boolean} opts.includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models.
+     * @param {String} opts.lastName If provided, will only return candidates with this last name.
      * @param {Date} opts.modifiedAfter If provided, will only return objects modified after this datetime.
      * @param {Date} opts.modifiedBefore If provided, will only return objects modified before this datetime.
      * @param {Number} opts.pageSize Number of results to return per page.
@@ -127,8 +126,11 @@ export default class CandidatesApi {
         'created_after': opts['createdAfter'],
         'created_before': opts['createdBefore'],
         'cursor': opts['cursor'],
+        'email_address': opts['emailAddress'],
         'expand': opts['expand'],
+        'first_name': opts['firstName'],
         'include_remote_data': opts['includeRemoteData'],
+        'last_name': opts['lastName'],
         'modified_after': opts['modifiedAfter'],
         'modified_before': opts['modifiedBefore'],
         'page_size': opts['pageSize'],

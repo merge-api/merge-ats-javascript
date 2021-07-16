@@ -39,7 +39,8 @@ let opts = {
   'modifiedAfter': new Date("2013-10-20T19:20:30+01:00"), // Date | If provided, will only return objects modified after this datetime.
   'modifiedBefore': new Date("2013-10-20T19:20:30+01:00"), // Date | If provided, will only return objects modified before this datetime.
   'pageSize': 56, // Number | Number of results to return per page.
-  'remoteId': "remoteId_example" // String | The API provider's ID for the given object.
+  'remoteId': "remoteId_example", // String | The API provider's ID for the given object.
+  'status': "status_example" // String | If provided, will only return jobs with this status. Options: ('OPEN', 'CLOSED', 'DRAFT', 'ARCHIVED', 'PENDING')
 };
 apiInstance.jobsList(xAccountToken, opts, (error, data, response) => {
   if (error) {
@@ -65,6 +66,7 @@ Name | Type | Description  | Notes
  **modifiedBefore** | **Date**| If provided, will only return objects modified before this datetime. | [optional] 
  **pageSize** | **Number**| Number of results to return per page. | [optional] 
  **remoteId** | **String**| The API provider&#39;s ID for the given object. | [optional] 
+ **status** | **String**| If provided, will only return jobs with this status. Options: (&#39;OPEN&#39;, &#39;CLOSED&#39;, &#39;DRAFT&#39;, &#39;ARCHIVED&#39;, &#39;PENDING&#39;) | [optional] 
 
 ### Return type
 

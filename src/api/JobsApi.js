@@ -56,6 +56,7 @@ export default class JobsApi {
      * @param {Date} opts.modifiedBefore If provided, will only return objects modified before this datetime.
      * @param {Number} opts.pageSize Number of results to return per page.
      * @param {String} opts.remoteId The API provider's ID for the given object.
+     * @param {module:model/String} opts.status If provided, will only return jobs with this status. Options: ('OPEN', 'CLOSED', 'DRAFT', 'ARCHIVED', 'PENDING')
      * @param {module:api/JobsApi~jobsListCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PaginatedJobList}
      */
@@ -78,7 +79,8 @@ export default class JobsApi {
         'modified_after': opts['modifiedAfter'],
         'modified_before': opts['modifiedBefore'],
         'page_size': opts['pageSize'],
-        'remote_id': opts['remoteId']
+        'remote_id': opts['remoteId'],
+        'status': opts['status']
       };
       let headerParams = {
         'X-Account-Token': xAccountToken

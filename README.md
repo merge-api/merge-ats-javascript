@@ -90,7 +90,6 @@ Class | Method | HTTP request | Description
 *MergeAtsApi.ActivitiesApi* | [**activitiesRetrieve**](docs/ActivitiesApi.md#activitiesRetrieve) | **GET** /activities/{id} | 
 *MergeAtsApi.ApplicationsApi* | [**applicationsCreate**](docs/ApplicationsApi.md#applicationsCreate) | **POST** /applications | 
 *MergeAtsApi.ApplicationsApi* | [**applicationsList**](docs/ApplicationsApi.md#applicationsList) | **GET** /applications | 
-*MergeAtsApi.ApplicationsApi* | [**applicationsPartialUpdate**](docs/ApplicationsApi.md#applicationsPartialUpdate) | **PATCH** /applications/{id} | 
 *MergeAtsApi.ApplicationsApi* | [**applicationsRetrieve**](docs/ApplicationsApi.md#applicationsRetrieve) | **GET** /applications/{id} | 
 *MergeAtsApi.AttachmentsApi* | [**attachmentsCreate**](docs/AttachmentsApi.md#attachmentsCreate) | **POST** /attachments | 
 *MergeAtsApi.AttachmentsApi* | [**attachmentsList**](docs/AttachmentsApi.md#attachmentsList) | **GET** /attachments | 
@@ -99,13 +98,17 @@ Class | Method | HTTP request | Description
 *MergeAtsApi.CandidatesApi* | [**candidatesCreate**](docs/CandidatesApi.md#candidatesCreate) | **POST** /candidates | 
 *MergeAtsApi.CandidatesApi* | [**candidatesList**](docs/CandidatesApi.md#candidatesList) | **GET** /candidates | 
 *MergeAtsApi.CandidatesApi* | [**candidatesRetrieve**](docs/CandidatesApi.md#candidatesRetrieve) | **GET** /candidates/{id} | 
+*MergeAtsApi.DeleteAccountApi* | [**deleteAccountCreate**](docs/DeleteAccountApi.md#deleteAccountCreate) | **POST** /delete-account | 
 *MergeAtsApi.DepartmentsApi* | [**departmentsList**](docs/DepartmentsApi.md#departmentsList) | **GET** /departments | 
 *MergeAtsApi.DepartmentsApi* | [**departmentsRetrieve**](docs/DepartmentsApi.md#departmentsRetrieve) | **GET** /departments/{id} | 
 *MergeAtsApi.EeocsApi* | [**eeocsList**](docs/EeocsApi.md#eeocsList) | **GET** /eeocs | 
 *MergeAtsApi.EeocsApi* | [**eeocsRetrieve**](docs/EeocsApi.md#eeocsRetrieve) | **GET** /eeocs/{id} | 
 *MergeAtsApi.GenerateKeyApi* | [**generateKeyCreate**](docs/GenerateKeyApi.md#generateKeyCreate) | **POST** /generate-key | 
+*MergeAtsApi.InterviewsApi* | [**interviewsCreate**](docs/InterviewsApi.md#interviewsCreate) | **POST** /interviews | 
 *MergeAtsApi.InterviewsApi* | [**interviewsList**](docs/InterviewsApi.md#interviewsList) | **GET** /interviews | 
 *MergeAtsApi.InterviewsApi* | [**interviewsRetrieve**](docs/InterviewsApi.md#interviewsRetrieve) | **GET** /interviews/{id} | 
+*MergeAtsApi.IssuesApi* | [**issuesList**](docs/IssuesApi.md#issuesList) | **GET** /issues | 
+*MergeAtsApi.IssuesApi* | [**issuesRetrieve**](docs/IssuesApi.md#issuesRetrieve) | **GET** /issues/{id} | 
 *MergeAtsApi.JobInterviewStagesApi* | [**jobInterviewStagesList**](docs/JobInterviewStagesApi.md#jobInterviewStagesList) | **GET** /job-interview-stages | 
 *MergeAtsApi.JobInterviewStagesApi* | [**jobInterviewStagesRetrieve**](docs/JobInterviewStagesApi.md#jobInterviewStagesRetrieve) | **GET** /job-interview-stages/{id} | 
 *MergeAtsApi.JobsApi* | [**jobsList**](docs/JobsApi.md#jobsList) | **GET** /jobs | 
@@ -119,11 +122,13 @@ Class | Method | HTTP request | Description
 *MergeAtsApi.RegenerateKeyApi* | [**regenerateKeyCreate**](docs/RegenerateKeyApi.md#regenerateKeyCreate) | **POST** /regenerate-key | 
 *MergeAtsApi.RejectReasonsApi* | [**rejectReasonsList**](docs/RejectReasonsApi.md#rejectReasonsList) | **GET** /reject-reasons | 
 *MergeAtsApi.RejectReasonsApi* | [**rejectReasonsRetrieve**](docs/RejectReasonsApi.md#rejectReasonsRetrieve) | **GET** /reject-reasons/{id} | 
+*MergeAtsApi.ScorecardsApi* | [**scorecardsCreate**](docs/ScorecardsApi.md#scorecardsCreate) | **POST** /scorecards | 
 *MergeAtsApi.ScorecardsApi* | [**scorecardsList**](docs/ScorecardsApi.md#scorecardsList) | **GET** /scorecards | 
 *MergeAtsApi.ScorecardsApi* | [**scorecardsRetrieve**](docs/ScorecardsApi.md#scorecardsRetrieve) | **GET** /scorecards/{id} | 
+*MergeAtsApi.SyncStatusApi* | [**syncStatusList**](docs/SyncStatusApi.md#syncStatusList) | **GET** /sync-status | 
 *MergeAtsApi.SyncStatusApi* | [**syncStatusResyncCreate**](docs/SyncStatusApi.md#syncStatusResyncCreate) | **POST** /sync-status/resync | 
-*MergeAtsApi.SyncStatusApi* | [**syncStatusRetrieve**](docs/SyncStatusApi.md#syncStatusRetrieve) | **GET** /sync-status | 
 *MergeAtsApi.TagsApi* | [**tagsList**](docs/TagsApi.md#tagsList) | **GET** /tags | 
+*MergeAtsApi.UsersApi* | [**usersCreate**](docs/UsersApi.md#usersCreate) | **POST** /users | 
 *MergeAtsApi.UsersApi* | [**usersList**](docs/UsersApi.md#usersList) | **GET** /users | 
 *MergeAtsApi.UsersApi* | [**usersRetrieve**](docs/UsersApi.md#usersRetrieve) | **GET** /users/{id} | 
 
@@ -153,6 +158,8 @@ Class | Method | HTTP request | Description
  - [MergeAtsApi.EndUserDetailsRequest](docs/EndUserDetailsRequest.md)
  - [MergeAtsApi.GenderEnum](docs/GenderEnum.md)
  - [MergeAtsApi.GenerateRemoteKeyRequest](docs/GenerateRemoteKeyRequest.md)
+ - [MergeAtsApi.Issue](docs/Issue.md)
+ - [MergeAtsApi.IssueStatusEnum](docs/IssueStatusEnum.md)
  - [MergeAtsApi.Job](docs/Job.md)
  - [MergeAtsApi.JobInterviewStage](docs/JobInterviewStage.md)
  - [MergeAtsApi.JobStatusEnum](docs/JobStatusEnum.md)
@@ -169,6 +176,7 @@ Class | Method | HTTP request | Description
  - [MergeAtsApi.PaginatedCandidateList](docs/PaginatedCandidateList.md)
  - [MergeAtsApi.PaginatedDepartmentList](docs/PaginatedDepartmentList.md)
  - [MergeAtsApi.PaginatedEEOCList](docs/PaginatedEEOCList.md)
+ - [MergeAtsApi.PaginatedIssueList](docs/PaginatedIssueList.md)
  - [MergeAtsApi.PaginatedJobInterviewStageList](docs/PaginatedJobInterviewStageList.md)
  - [MergeAtsApi.PaginatedJobList](docs/PaginatedJobList.md)
  - [MergeAtsApi.PaginatedOfferList](docs/PaginatedOfferList.md)
@@ -177,8 +185,8 @@ Class | Method | HTTP request | Description
  - [MergeAtsApi.PaginatedRemoteUserList](docs/PaginatedRemoteUserList.md)
  - [MergeAtsApi.PaginatedScheduledInterviewList](docs/PaginatedScheduledInterviewList.md)
  - [MergeAtsApi.PaginatedScorecardList](docs/PaginatedScorecardList.md)
+ - [MergeAtsApi.PaginatedSyncStatusList](docs/PaginatedSyncStatusList.md)
  - [MergeAtsApi.PaginatedTagList](docs/PaginatedTagList.md)
- - [MergeAtsApi.PatchedApplicationRequest](docs/PatchedApplicationRequest.md)
  - [MergeAtsApi.PhoneNumber](docs/PhoneNumber.md)
  - [MergeAtsApi.PhoneNumberRequest](docs/PhoneNumberRequest.md)
  - [MergeAtsApi.PhoneNumberTypeEnum](docs/PhoneNumberTypeEnum.md)
@@ -190,10 +198,14 @@ Class | Method | HTTP request | Description
  - [MergeAtsApi.RemoteKeyForRegenerationRequest](docs/RemoteKeyForRegenerationRequest.md)
  - [MergeAtsApi.RemoteResponse](docs/RemoteResponse.md)
  - [MergeAtsApi.RemoteUser](docs/RemoteUser.md)
+ - [MergeAtsApi.RemoteUserRequest](docs/RemoteUserRequest.md)
  - [MergeAtsApi.ScheduledInterview](docs/ScheduledInterview.md)
+ - [MergeAtsApi.ScheduledInterviewRequest](docs/ScheduledInterviewRequest.md)
  - [MergeAtsApi.ScheduledInterviewStatusEnum](docs/ScheduledInterviewStatusEnum.md)
  - [MergeAtsApi.Scorecard](docs/Scorecard.md)
+ - [MergeAtsApi.ScorecardRequest](docs/ScorecardRequest.md)
  - [MergeAtsApi.SyncStatus](docs/SyncStatus.md)
+ - [MergeAtsApi.SyncStatusStatusEnum](docs/SyncStatusStatusEnum.md)
  - [MergeAtsApi.Tag](docs/Tag.md)
  - [MergeAtsApi.Url](docs/Url.md)
  - [MergeAtsApi.UrlRequest](docs/UrlRequest.md)

@@ -130,6 +130,7 @@ ScheduledInterview.prototype['job_interview_stage'] = undefined;
 ScheduledInterview.prototype['organizer'] = undefined;
 
 /**
+ * Array of `RemoteUser` IDs.
  * @member {Array.<String>} interviewers
  */
 ScheduledInterview.prototype['interviewers'] = undefined;

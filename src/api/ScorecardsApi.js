@@ -15,6 +15,7 @@
 import ApiClient from "../ApiClient";
 import PaginatedScorecardList from '../model/PaginatedScorecardList';
 import Scorecard from '../model/Scorecard';
+import ScorecardRequest from '../model/ScorecardRequest';
 
 /**
 * Scorecards service.
@@ -34,6 +35,55 @@ export default class ScorecardsApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+    /**
+     * Callback function to receive the result of the scorecardsCreate operation.
+     * @callback module:api/ScorecardsApi~scorecardsCreateCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/Scorecard} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Creates a `Scorecard` object with the given values.
+     * @param {String} xAccountToken Token identifying the end user.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.remoteUserId The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
+     * @param {Boolean} opts.runAsync Whether or not third-party updates should be run asynchronously.
+     * @param {module:model/ScorecardRequest} opts.scorecardRequest 
+     * @param {module:api/ScorecardsApi~scorecardsCreateCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/Scorecard}
+     */
+    scorecardsCreate(xAccountToken, opts, callback) {
+      opts = opts || {};
+      let postBody = opts['scorecardRequest'];
+      // verify the required parameter 'xAccountToken' is set
+      if (xAccountToken === undefined || xAccountToken === null) {
+        throw new Error("Missing the required parameter 'xAccountToken' when calling scorecardsCreate");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'remote_user_id': opts['remoteUserId'],
+        'run_async': opts['runAsync']
+      };
+      let headerParams = {
+        'X-Account-Token': xAccountToken
+      };
+      let formParams = {
+      };
+
+      let authNames = ['tokenAuth'];
+      let contentTypes = ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'];
+      let accepts = ['application/json'];
+      let returnType = Scorecard;
+      return this.apiClient.callApi(
+        '/scorecards', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the scorecardsList operation.

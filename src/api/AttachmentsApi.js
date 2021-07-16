@@ -47,29 +47,25 @@ export default class AttachmentsApi {
     /**
      * Creates an `Attachment` object with the given values.
      * @param {String} xAccountToken Token identifying the end user.
-     * @param {String} remoteUserId The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
      * @param {Object} opts Optional parameters
+     * @param {String} opts.remoteUserId The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
      * @param {Boolean} opts.runAsync Whether or not third-party updates should be run asynchronously.
      * @param {module:model/AttachmentRequest} opts.attachmentRequest 
      * @param {module:api/AttachmentsApi~attachmentsCreateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Attachment}
      */
-    attachmentsCreate(xAccountToken, remoteUserId, opts, callback) {
+    attachmentsCreate(xAccountToken, opts, callback) {
       opts = opts || {};
       let postBody = opts['attachmentRequest'];
       // verify the required parameter 'xAccountToken' is set
       if (xAccountToken === undefined || xAccountToken === null) {
         throw new Error("Missing the required parameter 'xAccountToken' when calling attachmentsCreate");
       }
-      // verify the required parameter 'remoteUserId' is set
-      if (remoteUserId === undefined || remoteUserId === null) {
-        throw new Error("Missing the required parameter 'remoteUserId' when calling attachmentsCreate");
-      }
 
       let pathParams = {
       };
       let queryParams = {
-        'remote_user_id': remoteUserId,
+        'remote_user_id': opts['remoteUserId'],
         'run_async': opts['runAsync']
       };
       let headerParams = {

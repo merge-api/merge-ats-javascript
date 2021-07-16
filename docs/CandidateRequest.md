@@ -18,8 +18,8 @@ Name | Type | Description | Notes
 **phoneNumbers** | [**[PhoneNumberRequest]**](PhoneNumberRequest.md) |  | [optional] 
 **emailAddresses** | [**[EmailAddressRequest]**](EmailAddressRequest.md) |  | [optional] 
 **urls** | [**[UrlRequest]**](UrlRequest.md) |  | [optional] 
-**tags** | **[String]** |  | [optional] 
-**applications** | **[String]** |  | [optional] 
-**attachments** | **[String]** |  | [optional] 
+**tags** | **[String]** | Array of &#x60;Tag&#x60; names as strings. | [optional] 
+**applications** | **[String]** | Array of &#x60;Application&#x60; object IDs. | [optional] 
+**attachments** | **[String]** | Array of &#x60;Attachment&#x60; object IDs. | [optional] 
 
 

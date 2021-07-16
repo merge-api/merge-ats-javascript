@@ -194,16 +194,19 @@ CandidateRequest.prototype['email_addresses'] = undefined;
 CandidateRequest.prototype['urls'] = undefined;
 
 /**
+ * Array of `Tag` names as strings.
  * @member {Array.<String>} tags
  */
 CandidateRequest.prototype['tags'] = undefined;
 
 /**
+ * Array of `Application` object IDs.
  * @member {Array.<String>} applications
  */
 CandidateRequest.prototype['applications'] = undefined;
 
 /**
+ * Array of `Attachment` object IDs.
  * @member {Array.<String>} attachments
  */
 CandidateRequest.prototype['attachments'] = undefined;

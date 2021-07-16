@@ -15,6 +15,7 @@
 import ApiClient from "../ApiClient";
 import PaginatedRemoteUserList from '../model/PaginatedRemoteUserList';
 import RemoteUser from '../model/RemoteUser';
+import RemoteUserRequest from '../model/RemoteUserRequest';
 
 /**
 * Users service.
@@ -36,6 +37,55 @@ export default class UsersApi {
 
 
     /**
+     * Callback function to receive the result of the usersCreate operation.
+     * @callback module:api/UsersApi~usersCreateCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/RemoteUser} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Creates a `RemoteUser` object with the given values.
+     * @param {String} xAccountToken Token identifying the end user.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.remoteUserId The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
+     * @param {Boolean} opts.runAsync Whether or not third-party updates should be run asynchronously.
+     * @param {module:model/RemoteUserRequest} opts.remoteUserRequest 
+     * @param {module:api/UsersApi~usersCreateCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/RemoteUser}
+     */
+    usersCreate(xAccountToken, opts, callback) {
+      opts = opts || {};
+      let postBody = opts['remoteUserRequest'];
+      // verify the required parameter 'xAccountToken' is set
+      if (xAccountToken === undefined || xAccountToken === null) {
+        throw new Error("Missing the required parameter 'xAccountToken' when calling usersCreate");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'remote_user_id': opts['remoteUserId'],
+        'run_async': opts['runAsync']
+      };
+      let headerParams = {
+        'X-Account-Token': xAccountToken
+      };
+      let formParams = {
+      };
+
+      let authNames = ['tokenAuth'];
+      let contentTypes = ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'];
+      let accepts = ['application/json'];
+      let returnType = RemoteUser;
+      return this.apiClient.callApi(
+        '/users', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the usersList operation.
      * @callback module:api/UsersApi~usersListCallback
      * @param {String} error Error message, if any.
@@ -50,6 +100,7 @@ export default class UsersApi {
      * @param {Date} opts.createdAfter If provided, will only return objects created after this datetime.
      * @param {Date} opts.createdBefore If provided, will only return objects created before this datetime.
      * @param {String} opts.cursor The pagination cursor value.
+     * @param {String} opts.email If provided, will only return remote users with the given email address
      * @param {Boolean} opts.includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models.
      * @param {Date} opts.modifiedAfter If provided, will only return objects modified after this datetime.
      * @param {Date} opts.modifiedBefore If provided, will only return objects modified before this datetime.
@@ -72,6 +123,7 @@ export default class UsersApi {
         'created_after': opts['createdAfter'],
         'created_before': opts['createdBefore'],
         'cursor': opts['cursor'],
+        'email': opts['email'],
         'include_remote_data': opts['includeRemoteData'],
         'modified_after': opts['modifiedAfter'],
         'modified_before': opts['modifiedBefore'],

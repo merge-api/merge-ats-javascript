@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## attachmentsCreate
 
-> Attachment attachmentsCreate(xAccountToken, remoteUserId, opts)
+> Attachment attachmentsCreate(xAccountToken, opts)
 
 
 
@@ -31,12 +31,12 @@ tokenAuth.apiKey = 'YOUR API KEY';
 
 let apiInstance = new MergeAtsApi.AttachmentsApi();
 let xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
-let remoteUserId = "remoteUserId_example"; // String | The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
 let opts = {
+  'remoteUserId': "remoteUserId_example", // String | The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
   'runAsync': true, // Boolean | Whether or not third-party updates should be run asynchronously.
   'attachmentRequest': new MergeAtsApi.AttachmentRequest() // AttachmentRequest | 
 };
-apiInstance.attachmentsCreate(xAccountToken, remoteUserId, opts, (error, data, response) => {
+apiInstance.attachmentsCreate(xAccountToken, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -51,7 +51,7 @@ apiInstance.attachmentsCreate(xAccountToken, remoteUserId, opts, (error, data, r
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xAccountToken** | **String**| Token identifying the end user. | 
- **remoteUserId** | **String**| The ID of the RemoteUser deleting the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. | 
+ **remoteUserId** | **String**| The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. | [optional] 
  **runAsync** | **Boolean**| Whether or not third-party updates should be run asynchronously. | [optional] 
  **attachmentRequest** | [**AttachmentRequest**](AttachmentRequest.md)|  | [optional] 
 

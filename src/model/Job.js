@@ -14,6 +14,7 @@
 import ApiClient from '../ApiClient';
 import convertRelatedObjectToType from '../Utils';
 import Department from './Department';
+import Office from './Office';
 import JobStatusEnum from './JobStatusEnum';
 import RemoteData from './RemoteData';
 import RemoteUser from './RemoteUser';
